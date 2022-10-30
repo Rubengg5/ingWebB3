@@ -15,12 +15,12 @@ public class ReservasController : ControllerBase
 
     [HttpGet]
     public async Task<List<Reserva>> Get() =>
-        await reservasService.GetAsync();
+        await reservasService.GetReservas();
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Reserva>> Get(Guid id)
     {
-        var reserva = await reservasService.GetAsync(id);
+        var reserva = await reservasService.GetReservaById(id);
 
         if (reserva is null)
         {
@@ -33,7 +33,7 @@ public class ReservasController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(Reserva newReserva)
     {
-        await reservasService.CreateAsync(newReserva);
+        await reservasService.CreateReserva(newReserva);
 
         return CreatedAtAction(nameof(Get), new { id = newReserva.Id }, newReserva);
     }
@@ -42,7 +42,7 @@ public class ReservasController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(Guid id, Reserva updatedReserva)
     {
-        var reserva = await reservasService.GetAsync(id);
+        var reserva = await reservasService.GetReservaById(id);
 
         if (reserva is null)
         {
@@ -51,7 +51,7 @@ public class ReservasController : ControllerBase
 
         updatedReserva.Id = reserva.Id;
 
-        await reservasService.UpdateAsync(id, updatedReserva);
+        await reservasService.UpdateReserva(id, updatedReserva);
 
         return NoContent();
     }
@@ -59,15 +59,41 @@ public class ReservasController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
-        var reserva = await reservasService.GetAsync(id);
+        var reserva = await reservasService.GetReservaById(id);
 
         if (reserva is null)
         {
             return NotFound();
         }
 
-        await reservasService.RemoveAsync(id);
+        await reservasService.RemoveReserva(id);
 
         return NoContent();
+    }
+
+    [HttpGet("/getByInquilino/{inquilinoId}")]
+    public async Task<ActionResult<Reserva>> GetByInquilino(Guid inquilinoId)
+    {
+        var reserva = await reservasService.GetReservaByInquilinoId(inquilinoId);
+
+        if (reserva is null)
+        {
+            return NotFound();
+        }
+
+        return reserva;
+    }
+
+    [HttpGet("/getByVivienda/{inquilinoId}")]
+    public async Task<ActionResult<List<Reserva>>> GetByVivienda(Guid viviendaId)
+    {
+        var reservas = await reservasService.GetReservasByVivienda(viviendaId);
+
+        if (reservas is null)
+        {
+            return NotFound();
+        }
+
+        return reservas;
     }
 }

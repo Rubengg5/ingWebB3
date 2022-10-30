@@ -21,18 +21,21 @@ public class ViviendasService
             iwebDatabaseSettings.Value.ViviendasCollectionName);
     }
 
-    public async Task<List<Vivienda>> GetAsync() =>
+    public async Task<List<Vivienda>> GetViviendas() =>
         await viviendasCollection.Find(_ => true).ToListAsync();
 
-    public async Task<Vivienda?> GetAsync(Guid id) =>
+    public async Task<Vivienda?> GetViviendaById(Guid id) =>
         await viviendasCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-    public async Task CreateAsync(Vivienda newVivienda) =>
+    public async Task<Vivienda?> GetViviendasByUsuario(Guid id) =>
+        await viviendasCollection.Find(x => x.Propietario.Equals(id)).FirstOrDefaultAsync();
+
+    public async Task CreateVivienda(Vivienda newVivienda) =>
         await viviendasCollection.InsertOneAsync(newVivienda);
 
-    public async Task UpdateAsync(Guid id, Vivienda updatedVivienda) =>
+    public async Task UpdateVivienda(Guid id, Vivienda updatedVivienda) =>
         await viviendasCollection.ReplaceOneAsync(x => x.Id == id, updatedVivienda);
 
-    public async Task RemoveAsync(Guid id) =>
+    public async Task RemoveVivienda(Guid id) =>
         await viviendasCollection.DeleteOneAsync(x => x.Id == id);
 }

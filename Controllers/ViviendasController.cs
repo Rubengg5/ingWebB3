@@ -15,12 +15,12 @@ public class ViviendasController : ControllerBase
 
     [HttpGet]
     public async Task<List<Vivienda>> Get() =>
-        await viviendasService.GetAsync();
+        await viviendasService.GetViviendas();
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Vivienda>> Get(Guid id)
     {
-        var vivienda = await viviendasService.GetAsync(id);
+        var vivienda = await viviendasService.GetViviendaById(id);
 
         if (vivienda is null)
         {
@@ -29,11 +29,22 @@ public class ViviendasController : ControllerBase
 
         return vivienda;
     }
+    [HttpGet("/getByUsuario/{id}")]
+    public async Task<ActionResult<Vivienda>> GetByUsuario(Guid id)
+    {
+        var vivienda = await viviendasService.GetViviendasByUsuario(id);
 
+        if (vivienda is null)
+        {
+            return NotFound();
+        }
+
+        return vivienda;
+    }
     [HttpPost]
     public async Task<IActionResult> Post(Vivienda newVivienda)
     {
-        await viviendasService.CreateAsync(newVivienda);
+        await viviendasService.CreateVivienda(newVivienda);
 
         return CreatedAtAction(nameof(Get), new { id = newVivienda.Id }, newVivienda);
     }
@@ -42,7 +53,7 @@ public class ViviendasController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(Guid id, Vivienda updatedVivienda)
     {
-        var vivienda = await viviendasService.GetAsync(id);
+        var vivienda = await viviendasService.GetViviendaById(id);
 
         if (vivienda is null)
         {
@@ -51,7 +62,7 @@ public class ViviendasController : ControllerBase
 
         updatedVivienda.Id = vivienda.Id;
 
-        await viviendasService.UpdateAsync(id, updatedVivienda);
+        await viviendasService.UpdateVivienda(id, updatedVivienda);
 
         return NoContent();
     }
@@ -59,14 +70,14 @@ public class ViviendasController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
-        var vivienda = await viviendasService.GetAsync(id);
+        var vivienda = await viviendasService.GetViviendaById(id);
 
         if (vivienda is null)
         {
             return NotFound();
         }
 
-        await viviendasService.RemoveAsync(id);
+        await viviendasService.RemoveVivienda(id);
 
         return NoContent();
     }

@@ -9,4 +9,6 @@ public class iwebDatabaseSettings
     public string ViviendasCollectionName { get; set; } = null!;
 
     public string ReservasCollectionName { get; set; } = null!;
+
+    public string UsuariosCollectionName { get; set; } = null!;
 }

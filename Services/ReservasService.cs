@@ -21,18 +21,24 @@ public class ReservasService
             iwebDatabaseSettings.Value.ReservasCollectionName);
     }
 
-    public async Task<List<Reserva>> GetAsync() =>
+    public async Task<List<Reserva>> GetReservas() =>
         await reservasCollection.Find(_ => true).ToListAsync();
 
-    public async Task<Reserva?> GetAsync(Guid id) =>
+    public async Task<Reserva?> GetReservaById(Guid id) =>
         await reservasCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-    public async Task CreateAsync(Reserva newReserva) =>
+    public async Task<List<Reserva>> GetReservasByVivienda(Guid id) =>
+        await reservasCollection.Find(x => x.IdVivienda == id).ToListAsync();
+
+    public async Task<Reserva?> GetReservaByInquilinoId(Guid inquilino) =>
+        await reservasCollection.Find(x => x.Inquilino.Equals(inquilino)).FirstOrDefaultAsync();
+
+    public async Task CreateReserva(Reserva newReserva) =>
         await reservasCollection.InsertOneAsync(newReserva);
 
-    public async Task UpdateAsync(Guid id, Reserva updatedReserva) =>
+    public async Task UpdateReserva(Guid id, Reserva updatedReserva) =>
         await reservasCollection.ReplaceOneAsync(x => x.Id == id, updatedReserva);
 
-    public async Task RemoveAsync(Guid id) =>
+    public async Task RemoveReserva(Guid id) =>
         await reservasCollection.DeleteOneAsync(x => x.Id == id);
 }
