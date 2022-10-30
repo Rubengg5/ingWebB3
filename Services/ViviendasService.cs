@@ -27,7 +27,9 @@ public class ViviendasService
     public async Task<Vivienda?> GetViviendaById(Guid id) =>
         await viviendasCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-    public async Task<Vivienda?> GetViviendasByUsuario(Guid id) =>
+    public async Task<Vivienda?> GetViviendaByLocalidad(string localidad) =>
+
+    public async Task<Vivienda?> GetViviendasByPropietario(Guid id) =>
         await viviendasCollection.Find(x => x.Propietario.Equals(id)).FirstOrDefaultAsync();
 
     public async Task CreateVivienda(Vivienda newVivienda) =>

@@ -29,10 +29,10 @@ public class ViviendasController : ControllerBase
 
         return vivienda;
     }
-    [HttpGet("/getByUsuario/{id}")]
-    public async Task<ActionResult<Vivienda>> GetByUsuario(Guid id)
+    [HttpGet("/getByPropietario/{id}")]
+    public async Task<ActionResult<Vivienda>> GetByPropietario(Guid id)
     {
-        var vivienda = await viviendasService.GetViviendasByUsuario(id);
+        var vivienda = await viviendasService.GetViviendasByPropietario(id);
 
         if (vivienda is null)
         {

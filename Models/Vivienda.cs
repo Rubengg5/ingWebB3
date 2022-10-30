@@ -13,7 +13,7 @@ namespace WebAPI.Models
         //[BsonRepresentation(BsonType.ObjectId)]
         [BsonId]
         public Guid Id { get; set; }
-        public string Propietario { get; set; }
+        public Guid Propietario { get; set; }
         public string Localidad { get; set; }
         public string Provincia { get; set; }
         public Ubicacion Ubicacion { get; set; }
