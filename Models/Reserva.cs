@@ -17,7 +17,7 @@ namespace WebAPI.Models
         public string FechaEntrada { get; set; }
         public string FechaSalida { get; set; }
         public int NPersonas { get; set; }
-        public string Inquilino { get; set; }
+        public Guid Inquilino { get; set; }
     }
 
 }

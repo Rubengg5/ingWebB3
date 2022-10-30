@@ -9,6 +9,7 @@ builder.Services.Configure<iwebDatabaseSettings>(
 
 builder.Services.AddSingleton<ViviendasService>();
 builder.Services.AddSingleton<ReservasService>();
+builder.Services.AddSingleton<UsuariosService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

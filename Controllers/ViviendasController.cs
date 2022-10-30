@@ -41,6 +41,20 @@ public class ViviendasController : ControllerBase
 
         return vivienda;
     }
+
+    [HttpGet("/getByLocalidad/{id}")]
+    public async Task<ActionResult<List<Vivienda>>> GetByLocalidad(string localidad)
+    {
+        var viviendas = await viviendasService.GetViviendasByLocalidad(localidad);
+
+        if (viviendas is null)
+        {
+            return NotFound();
+        }
+
+        return viviendas;
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post(Vivienda newVivienda)
     {
