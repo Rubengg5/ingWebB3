@@ -6,8 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Azure.Core" Version="1.25.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client.es" Version="5.2.9" />
     <PackageReference Include="MongoDB.Bson" Version="2.18.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
+    <PackageReference Include="RestSharp" Version="108.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 

@@ -8,7 +8,7 @@ namespace WebAPI.Models
 {
     public class Ubicacion
     {
-        public int lat { get; set; }
-        public int lon { get; set; }
+        public float lat { get; set; }
+        public float lon { get; set; }
     }
 }
