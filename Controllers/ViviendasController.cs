@@ -42,7 +42,7 @@ public class ViviendasController : ControllerBase
         return vivienda;
     }
 
-    [HttpGet("/getByLocalidad/")]
+    [HttpGet("getByLocalidad/")]
     public async Task<ActionResult<List<Vivienda>>> GetByLocalidad(string localidad)
     {
         var viviendas = await viviendasService.GetViviendasByLocalidad(localidad);
