@@ -27,6 +27,9 @@ public class ReservasService
     public async Task<Reserva?> GetReservaById(Guid id) =>
         await reservasCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
+    public async Task<List<Reserva>> GetReservasByFecha(string fechaEntrada, string fechaSalida) =>
+        await reservasCollection.Find(x => x.FechaEntrada == fechaEntrada && x.FechaSalida == fechaSalida).ToListAsync();
+
     public async Task<List<Reserva>> GetReservasByVivienda(Guid idVivienda) =>
         await reservasCollection.Find(x => x.IdVivienda == idVivienda).ToListAsync();
 

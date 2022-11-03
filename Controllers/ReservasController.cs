@@ -96,4 +96,17 @@ public class ReservasController : ControllerBase
 
         return reservas;
     }
+
+    [HttpGet("/getByFecha")]
+    public async Task<ActionResult<List<Reserva>>> GetByVivienda(string fechaEntrada, string fechaSalida)
+    {
+        var reservas = await reservasService.GetReservasByFecha(fechaEntrada, fechaSalida);
+
+        if (reservas is null)
+        {
+            return NotFound();
+        }
+
+        return reservas;
+    }
 }
