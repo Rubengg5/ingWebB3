@@ -29,7 +29,7 @@ public class ViviendasController : ControllerBase
 
         return vivienda;
     }
-    [HttpGet("/getByPropietario/{id}")]
+    [HttpGet("getByPropietario/{id}")]
     public async Task<ActionResult<Vivienda>> GetByPropietario(Guid id)
     {
         var vivienda = await viviendasService.GetViviendasByPropietario(id);
@@ -42,7 +42,7 @@ public class ViviendasController : ControllerBase
         return vivienda;
     }
 
-    [HttpGet("/getByLocalidad/{id}")]
+    [HttpGet("getByLocalidad/{id}")]
     public async Task<ActionResult<List<Vivienda>>> GetByLocalidad(string localidad)
     {
         var viviendas = await viviendasService.GetViviendasByLocalidad(localidad);
@@ -63,7 +63,6 @@ public class ViviendasController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = newVivienda.Id }, newVivienda);
     }
 
-    //[HttpPut("{id:length(24)}")]
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(Guid id, Vivienda updatedVivienda)
     {

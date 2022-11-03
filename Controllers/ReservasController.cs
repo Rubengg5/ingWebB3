@@ -38,7 +38,6 @@ public class ReservasController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = newReserva.Id }, newReserva);
     }
 
-    //[HttpPut("{id:length(24)}")]
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(Guid id, Reserva updatedReserva)
     {
@@ -71,7 +70,7 @@ public class ReservasController : ControllerBase
         return NoContent();
     }
 
-    [HttpGet("/getByInquilino/{inquilinoId}")]
+    [HttpGet("getByInquilino/{inquilinoId}")]
     public async Task<ActionResult<Reserva>> GetByInquilino(Guid inquilinoId)
     {
         var reserva = await reservasService.GetReservaByInquilinoId(inquilinoId);
@@ -84,7 +83,7 @@ public class ReservasController : ControllerBase
         return reserva;
     }
 
-    [HttpGet("/getByVivienda/{viviendaId}")]
+    [HttpGet("getByVivienda/{viviendaId}")]
     public async Task<ActionResult<List<Reserva>>> GetByVivienda(Guid viviendaId)
     {
         var reservas = await reservasService.GetReservasByVivienda(viviendaId);
@@ -97,7 +96,7 @@ public class ReservasController : ControllerBase
         return reservas;
     }
 
-    [HttpGet("/getByFecha")]
+    [HttpGet("getByFecha")]
     public async Task<ActionResult<List<Reserva>>> GetByVivienda(string fechaEntrada, string fechaSalida)
     {
         var reservas = await reservasService.GetReservasByFecha(fechaEntrada, fechaSalida);
