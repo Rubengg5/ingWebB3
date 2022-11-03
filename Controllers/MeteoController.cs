@@ -59,10 +59,10 @@ namespace WebAPI.Controllers
             }
         }
         [HttpGet("texto/porHoras")]
-        public ActionResult<string> GetPrevisionTextoHourly([FromQuery] string calle)
+        public ActionResult<string> GetPrevisionTextoHourly([FromQuery] string municipio)
         {
             var cliente_geocoding = new RestClient("https://eu1.locationiq.com/");
-            var request_geocoding = new RestRequest($"v1/search?key=pk.2cd804ffd67b9615096d4c3069990a53&q=={calle}&format=json");
+            var request_geocoding = new RestRequest($"v1/search?key=pk.2cd804ffd67b9615096d4c3069990a53&q=={municipio}&format=json");
             var response_geocoding = cliente_geocoding.Execute(request_geocoding);
             var ubicacion = JsonConvert.DeserializeObject<List<UbicacionGeocoding>>(response_geocoding.Content.ToString()).First();
 
@@ -80,10 +80,10 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("texto/diaria")]
-        public ActionResult<string> GetPrevisionTextoDaily([FromQuery] string calle)
+        public ActionResult<string> GetPrevisionTextoDaily([FromQuery] string municipio)
         {
             var cliente_geocoding = new RestClient("https://eu1.locationiq.com/");
-            var request_geocoding = new RestRequest($"v1/search?key=pk.2cd804ffd67b9615096d4c3069990a53&q=={calle}&format=json");
+            var request_geocoding = new RestRequest($"v1/search?key=pk.2cd804ffd67b9615096d4c3069990a53&q=={municipio}&format=json");
             var response_geocoding = cliente_geocoding.Execute(request_geocoding);
             var ubicacion = JsonConvert.DeserializeObject<List<UbicacionGeocoding>>(response_geocoding.Content.ToString()).First();
 

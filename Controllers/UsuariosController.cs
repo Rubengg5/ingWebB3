@@ -38,7 +38,6 @@ namespace WebAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = newUsuario.Id }, newUsuario);
         }
 
-        //[HttpPut("{id:length(24)}")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, Usuario updatedUsuario)
         {
