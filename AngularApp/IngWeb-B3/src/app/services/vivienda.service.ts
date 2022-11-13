@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { Vivienda } from '../models/vivienda';
 
 
 @Injectable({
@@ -13,31 +14,33 @@ export class ViviendaService {
     
   }
 
-  getViviendas(){
+  getViviendas(): Observable<Vivienda[]>{
+    var viviendas = this.http.get<Vivienda[]>(environment.baseURL+"/api/Viviendas");
 
+    return viviendas;
   }
 
   createVivivenda(){
 
   }
 
-  getViviendaById(){
+  getViviendaById(id: string){
 
   }
 
-  updateVivienda(){
+  updateVivienda(id: string){
 
   }
 
-  deleteVivienda(){
+  deleteVivienda(id: string){
 
   }
 
-  getViviendaByPropietario(){
+  getViviendaByPropietario(id: string){
 
   }
 
-  getViviendaByLocalidad(){
+  getViviendaByLocalidad(localidad: string){
 
   }
 
