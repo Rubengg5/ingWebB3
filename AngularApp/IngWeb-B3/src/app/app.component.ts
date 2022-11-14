@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vivienda } from './models/vivienda';
+import { ReservaService } from './services/reserva.service';
 import { ViviendaService } from './services/vivienda.service';
 
 @Component({
@@ -10,13 +11,22 @@ import { ViviendaService } from './services/vivienda.service';
 export class AppComponent implements OnInit{
   title = 'IngWeb-B3';
   private viviendaService;
-  viviendasList: Vivienda[] = [];
+  private reservaService;
+  //viviendasList: Vivienda[] = [];
+  vivienda: any;
 
-  constructor(viviendaService: ViviendaService) { 
+  constructor(viviendaService: ViviendaService, reservaService: ReservaService) { 
     this.viviendaService = viviendaService;
+    this.reservaService = reservaService;
+    this.reservaService.getReservaByFechas("2022-11-22", "2022-11-30")
+    .subscribe(data => 
+      {
+        this.vivienda = data;
+        console.log("data: "+data);
+        console.log(this.vivienda);
+      });
 
-    this.viviendaService.getViviendas()
-    .subscribe((data: Vivienda[]) => this.viviendasList = data);
+
   }
 
   ngOnInit() {

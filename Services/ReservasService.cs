@@ -34,7 +34,7 @@ public class ReservasService
         await reservasCollection.Find(x => x.IdVivienda == idVivienda).ToListAsync();
 
     public async Task<Reserva?> GetReservaByInquilinoId(Guid inquilino) =>
-        await reservasCollection.Find(x => x.Inquilino.Equals(inquilino)).FirstOrDefaultAsync();
+        await reservasCollection.Find(x => x.Inquilino==inquilino).FirstOrDefaultAsync();
 
     public async Task CreateReserva(Reserva newReserva) =>
         await reservasCollection.InsertOneAsync(newReserva);
