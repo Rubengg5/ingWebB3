@@ -29,7 +29,7 @@ export class ReservaService {
     return this.http.put<Reserva>(environment.baseURL+"/api/Reservas/"+id, id);
   }
 
-  deleteVivienda(id: string){
+  deleteReserva(id: string){
     return this.http.delete(environment.baseURL+"/api/Reservas/"+id);
   }
 

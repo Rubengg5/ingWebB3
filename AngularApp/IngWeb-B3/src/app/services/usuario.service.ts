@@ -28,7 +28,7 @@ export class UsuarioService {
         return this.http.put<Usuario>(environment.baseURL+"/api/Usuarios/"+id, usuario);
       }
     
-      deleteVivienda(id: string){
+      deleteUsuario(id: string){
         return this.http.delete(environment.baseURL+"/api/Usuarios/"+id);
       }
 
