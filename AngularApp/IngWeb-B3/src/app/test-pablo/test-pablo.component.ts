@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-pablo.component.css']
 })
 export class TestPabloComponent implements OnInit {
+  exampleString: string;
+  exampleArray: string[];
 
-  constructor() { }
+  constructor() {
+    this.exampleArray = [];
+    this.exampleString = "Hola!! exampleString";
+   }
 
   ngOnInit(): void {
   }
