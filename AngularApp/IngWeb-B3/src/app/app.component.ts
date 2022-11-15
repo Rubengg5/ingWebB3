@@ -2,7 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Vivienda } from './models/vivienda';
 import { ReservaService } from './services/reserva.service';
 import { ViviendaService } from './services/vivienda.service';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+import { TestPabloComponent } from './test-pablo/test-pablo.component';
 
+const routes: Routes = [
+  { path: '/test-pablo', component: TestPabloComponent },
+];
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -30,6 +36,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    
+
   }
 }
