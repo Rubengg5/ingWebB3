@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rubén\\Documents\\University\\IngWeb\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\Rubén\\Documents\\University\\IngWeb\\parciales\\parcial2-2021\\ingWebB3\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rubén\\Documents\\University\\IngWeb\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\Rubén\\Documents\\University\\IngWeb\\parciales\\parcial2-2021\\ingWebB3\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rubén\\Documents\\University\\IngWeb\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Rubén\\Documents\\University\\IngWeb\\parciales\\parcial2-2021\\ingWebB3\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\Rubén\\Documents\\University\\IngWeb\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\Rubén\\Documents\\University\\IngWeb\\parciales\\parcial2-2021\\ingWebB3\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\Rubén\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rubén\\Documents\\University\\IngWeb\\WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\Rubén\\Documents\\University\\IngWeb\\parciales\\parcial2-2021\\ingWebB3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,32 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Azure.Core": {
+              "target": "Package",
+              "version": "[1.25.0, )"
+            },
+            "Microsoft.AspNet.WebApi.Client.es": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
             "MongoDB.Bson": {
               "target": "Package",
               "version": "[2.18.0, )"
@@ -53,9 +79,17 @@
               "target": "Package",
               "version": "[2.18.0, )"
             },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[108.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
             }
           },
           "imports": [

@@ -6,9 +6,7 @@ public class iwebDatabaseSettings
 
     public string DatabaseName { get; set; } = null!;
 
-    public string ViviendasCollectionName { get; set; } = null!;
+    public string TrinosCollectionName { get; set; } = null!;
 
-    public string ReservasCollectionName { get; set; } = null!;
-
-    public string UsuariosCollectionName { get; set; } = null!;
+    public string SigueMeCollectionName { get; set; } = null!;
 }
