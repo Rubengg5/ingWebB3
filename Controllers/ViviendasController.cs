@@ -30,16 +30,16 @@ public class ViviendasController : ControllerBase
         return vivienda;
     }
     [HttpGet("getByPropietario/{id}")]
-    public async Task<ActionResult<Vivienda>> GetByPropietario(Guid id)
+    public async Task<ActionResult<List<Vivienda>>> GetByPropietario(Guid id)
     {
-        var vivienda = await viviendasService.GetViviendasByPropietario(id);
+        var viviendas = await viviendasService.GetViviendasByPropietario(id);
 
-        if (vivienda is null)
+        if (viviendas is null)
         {
             return NotFound();
         }
 
-        return vivienda;
+        return viviendas;
     }
 
     [HttpGet("getByLocalidad/")]

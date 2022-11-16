@@ -37,7 +37,7 @@ export class ViviendaService {
   }
 
   getViviendaByPropietario(id: string){
-    return this.http.get<Vivienda>(environment.baseURL+"/api/Viviendas/getByPropietario/"+id);
+    return this.http.get<Vivienda[]>(environment.baseURL+"/api/Viviendas/getByPropietario/"+id);
   }
 
   getViviendaByLocalidad(localidad: string){
