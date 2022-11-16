@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Import the Cloudinary classes.
-import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
-import {fill} from "@cloudinary/url-gen/actions/resize";
+//import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
+//import {fill} from "@cloudinary/url-gen/actions/resize";
 
 @Component({
   selector: 'app-test-pablo',
@@ -11,7 +11,7 @@ import {fill} from "@cloudinary/url-gen/actions/resize";
 export class TestPabloComponent implements OnInit {
   exampleString: string;
   exampleArray: string[];
-  img!: CloudinaryImage;
+  //img!: CloudinaryImage;
 
 
   constructor() {
@@ -20,7 +20,7 @@ export class TestPabloComponent implements OnInit {
    }
 
   ngOnInit(): void {
-        // Create a Cloudinary instance and set your cloud name.
+        /*// Create a Cloudinary instance and set your cloud name.
         const cld = new Cloudinary({
           cloud: {
             cloudName: 'dee6pfpam'
@@ -30,7 +30,7 @@ export class TestPabloComponent implements OnInit {
         this.img = cld.image('samples/bike');
     
         // Resize to 250 x 250 pixels using the 'fill' crop mode.
-        this.img.resize(fill().width(250).height(250));
+        this.img.resize(fill().width(250).height(250));*/
   }
 
 }
