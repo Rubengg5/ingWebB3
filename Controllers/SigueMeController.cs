@@ -13,9 +13,9 @@ public class SigueMeController : ControllerBase
     public SigueMeController(SigueMeService sigueMeService) =>
         this.sigueMeService = sigueMeService;
 
-    //[HttpGet]
-    //public async Task<List<SigueMe>> Get() =>
-    //    await reservasService.GetReservas();
+    [HttpGet]
+    public async Task<List<SigueMe>> Get() =>
+        await sigueMeService.GetSigueMe();
 
     //[HttpGet("{id}")]
     //public async Task<ActionResult<SigueMe>> Get(Guid id)

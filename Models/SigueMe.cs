@@ -10,6 +10,8 @@ namespace WebAPI.Models
 {
     public class SigueMe
     {
+        [BsonId]
+        public Guid Id { get; set; }
         public string Seguidor { get; set; }
         public string Seguido { get; set; }
     }
