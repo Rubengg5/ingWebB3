@@ -3,7 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Reserva } from '../models/reserva';
 import { Usuario } from '../models/usuario';
 import { Vivienda } from '../models/vivienda';
+import { ReservaService } from '../services/reserva.service';
 import { UsuarioService } from '../services/usuario.service';
+import { ViviendaService } from '../services/vivienda.service';
 
 @Component({
   selector: 'app-usuario',
@@ -17,7 +19,9 @@ export class UsuarioComponent implements OnInit {
   listaReservas: Reserva[] = [];
 
   constructor(private route: ActivatedRoute,
-    private usuarioService: UsuarioService,) { }
+    private usuarioService: UsuarioService,
+    private viviendasService: ViviendaService,
+    private ReservaService: ReservaService) { }
 
   ngOnInit(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
@@ -30,11 +34,15 @@ export class UsuarioComponent implements OnInit {
   }
 
   public getListaViviendas(){
-
+    this.viviendasService.getViviendaByPropietario(this.currentUser.id)
+    .subscribe(data => 
+      {
+        this.listaViviendas = data;
+      });
   }
 
 
   public getListaReservas(){
-    
+
   }
 }
