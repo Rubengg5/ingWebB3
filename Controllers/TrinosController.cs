@@ -6,12 +6,12 @@ namespace WebAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class Trinos1Controller : ControllerBase
+public class TrinosController : ControllerBase
 {
     private readonly TrinosService trinosService;
 
-    public Trinos1Controller(TrinosService viviendasService) =>
-        this.trinosService = viviendasService;
+    public TrinosController(TrinosService trinosService) =>
+        this.trinosService = trinosService;
 
     [HttpGet]
     public async Task<List<Trinos>> Get() =>

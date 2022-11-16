@@ -8,10 +8,10 @@ namespace WebAPI.Controllers;
 [Route("api/[controller]")]
 public class SigueMeController : ControllerBase
 {
-    private readonly SigueMeService reservasService;
+    private readonly SigueMeService sigueMeService;
 
-    public SigueMeController(SigueMeService reservasService) =>
-        this.reservasService = reservasService;
+    public SigueMeController(SigueMeService sigueMeService) =>
+        this.sigueMeService = sigueMeService;
 
     //[HttpGet]
     //public async Task<List<SigueMe>> Get() =>
