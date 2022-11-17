@@ -17,18 +17,18 @@ public class TrinosController : ControllerBase
     public async Task<List<Trinos>> Get() =>
         await trinosService.GetTrinos();
 
-    //[HttpGet("{id}")]
-    //public async Task<ActionResult<Trinos>> Get(Guid id)
-    //{
-    //    var vivienda = await viviendasService.GetViviendaById(id);
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Trinos>> Get(Guid id)
+    {
+        var trinos = await trinosService.GetTrinosById(id);
 
-    //    if (vivienda is null)
-    //    {
-    //        return NotFound();
-    //    }
+        if (trinos is null)
+        {
+            return NotFound();
+        }
 
-    //    return vivienda;
-    //}
+        return trinos;
+    }
     //[HttpGet("getByPropietario/{id}")]
     //public async Task<ActionResult<Trinos>> GetByPropietario(Guid id)
     //{
@@ -55,43 +55,43 @@ public class TrinosController : ControllerBase
     //    return viviendas;
     //}
 
-    //[HttpPost]
-    //public async Task<IActionResult> Post(Trinos newVivienda)
-    //{
-    //    await viviendasService.CreateVivienda(newVivienda);
+    [HttpPost]
+    public async Task<IActionResult> Post(Trinos newTrinos)
+    {
+        await trinosService.CreateTrinos(newTrinos);
 
-    //    return CreatedAtAction(nameof(Get), new { id = newVivienda.Id }, newVivienda);
-    //}
+        return CreatedAtAction(nameof(Get), new { id = newTrinos.Id }, newTrinos);
+    }
 
-    //[HttpPut("{id}")]
-    //public async Task<IActionResult> Update(Guid id, Trinos updatedVivienda)
-    //{
-    //    var vivienda = await viviendasService.GetViviendaById(id);
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(Guid id, Trinos updatedTrinos)
+    {
+        var trinos = await trinosService.GetTrinosById(id);
 
-    //    if (vivienda is null)
-    //    {
-    //        return NotFound();
-    //    }
+        if (trinos is null)
+        {
+            return NotFound();
+        }
 
-    //    updatedVivienda.Id = vivienda.Id;
+        updatedTrinos.Id = trinos.Id;
 
-    //    await viviendasService.UpdateVivienda(id, updatedVivienda);
+        await trinosService.UpdateTrinos(id, updatedTrinos);
 
-    //    return NoContent();
-    //}
+        return NoContent();
+    }
 
-    //[HttpDelete("{id}")]
-    //public async Task<IActionResult> Delete(Guid id)
-    //{
-    //    var vivienda = await viviendasService.GetViviendaById(id);
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var trinos = await trinosService.GetTrinosById(id);
 
-    //    if (vivienda is null)
-    //    {
-    //        return NotFound();
-    //    }
+        if (trinos is null)
+        {
+            return NotFound();
+        }
 
-    //    await viviendasService.RemoveVivienda(id);
+        await trinosService.RemoveTrinos(id);
 
-    //    return NoContent();
-    //}
+        return NoContent();
+    }
 }

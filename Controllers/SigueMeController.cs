@@ -17,63 +17,63 @@ public class SigueMeController : ControllerBase
     public async Task<List<SigueMe>> Get() =>
         await sigueMeService.GetSigueMe();
 
-    //[HttpGet("{id}")]
-    //public async Task<ActionResult<SigueMe>> Get(Guid id)
-    //{
-    //    var reserva = await reservasService.GetReservaById(id);
+    [HttpGet("{id}")]
+    public async Task<ActionResult<SigueMe>> Get(Guid id)
+    {
+        var sigueMe = await sigueMeService.GetSigueMeById(id);
 
-    //    if (reserva is null)
-    //    {
-    //        return NotFound();
-    //    }
+        if (sigueMe is null)
+        {
+            return NotFound();
+        }
 
-    //    return reserva;
-    //}
+        return sigueMe;
+    }
 
-    //[HttpPost]
-    //public async Task<IActionResult> Post(SigueMe newReserva)
-    //{
-    //    await reservasService.CreateReserva(newReserva);
+    [HttpPost]
+    public async Task<IActionResult> Post(SigueMe newSigueMe)
+    {
+        await sigueMeService.CreateSigueMe(newSigueMe);
 
-    //    return CreatedAtAction(nameof(Get), new { id = newReserva.Id }, newReserva);
-    //}
+        return CreatedAtAction(nameof(Get), new { id = newSigueMe.Id }, newSigueMe);
+    }
 
-    //[HttpPut("{id}")]
-    //public async Task<IActionResult> Update(Guid id, SigueMe updatedReserva)
-    //{
-    //    var reserva = await reservasService.GetReservaById(id);
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(Guid id, SigueMe updatedSigueMe)
+    {
+        var sigueMe = await sigueMeService.GetSigueMeById(id);
 
-    //    if (reserva is null)
-    //    {
-    //        return NotFound();
-    //    }
+        if (sigueMe is null)
+        {
+            return NotFound();
+        }
 
-    //    updatedReserva.Id = reserva.Id;
+        updatedSigueMe.Id = sigueMe.Id;
 
-    //    await reservasService.UpdateReserva(id, updatedReserva);
+        await sigueMeService.UpdateSigueMe(id, updatedSigueMe);
 
-    //    return NoContent();
-    //}
+        return NoContent();
+    }
 
-    //[HttpDelete("{id}")]
-    //public async Task<IActionResult> Delete(Guid id)
-    //{
-    //    var reserva = await reservasService.GetReservaById(id);
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var sigueMe = await sigueMeService.GetSigueMeById(id);
 
-    //    if (reserva is null)
-    //    {
-    //        return NotFound();
-    //    }
+        if (sigueMe is null)
+        {
+            return NotFound();
+        }
 
-    //    await reservasService.RemoveReserva(id);
+        await sigueMeService.RemoveSigueMe(id);
 
-    //    return NoContent();
-    //}
+        return NoContent();
+    }
 
     //[HttpGet("getByInquilino/{inquilinoId}")]
     //public async Task<ActionResult<SigueMe>> GetByInquilino(Guid inquilinoId)
     //{
-    //    var reserva = await reservasService.GetReservaByInquilinoId(inquilinoId);
+    //    var reserva = await sigueMeService.GetReservaByInquilinoId(inquilinoId);
 
     //    if (reserva is null)
     //    {
@@ -84,28 +84,28 @@ public class SigueMeController : ControllerBase
     //}
 
     //[HttpGet("getByVivienda/{viviendaId}")]
-    //public async Task<ActionResult<List<SigueMe>>> GetByVivienda(Guid viviendaId)
+    //public async Task<ActionResult<List<SigueMe>>> GetByVivienda(Guid id)
     //{
-    //    var reservas = await reservasService.GetReservasByVivienda(viviendaId);
+    //    var sigueMes = await sigueMeService.GetReservasByVivienda(id);
 
-    //    if (reservas is null)
+    //    if (sigueMes is null)
     //    {
     //        return NotFound();
     //    }
 
-    //    return reservas;
+    //    return sigueMes;
     //}
 
     //[HttpGet("getByFecha")]
     //public async Task<ActionResult<List<SigueMe>>> GetByVivienda(string fechaEntrada, string fechaSalida)
     //{
-    //    var reservas = await reservasService.GetReservasByFecha(fechaEntrada, fechaSalida);
+    //    var sigueMes = await sigueMeService.GetSigueMeByFecha(fechaEntrada, fechaSalida);
 
-    //    if (reservas is null)
+    //    if (sigueMes is null)
     //    {
     //        return NotFound();
     //    }
 
-    //    return reservas;
+    //    return sigueMes;
     //}
 }
