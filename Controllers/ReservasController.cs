@@ -71,7 +71,7 @@ public class ReservasController : ControllerBase
     }
 
     [HttpGet("getByInquilino/{inquilinoId}")]
-    public async Task<ActionResult<Reserva>> GetByInquilino(Guid inquilinoId)
+    public async Task<ActionResult<List<Reserva>>> GetByInquilino(Guid inquilinoId)
     {
         var reserva = await reservasService.GetReservaByInquilinoId(inquilinoId);
 

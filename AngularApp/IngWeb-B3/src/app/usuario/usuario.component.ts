@@ -21,7 +21,7 @@ export class UsuarioComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private usuarioService: UsuarioService,
     private viviendasService: ViviendaService,
-    private ReservaService: ReservaService) { }
+    private reservaService: ReservaService) { }
 
   ngOnInit(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
@@ -31,9 +31,12 @@ export class UsuarioComponent implements OnInit {
       {
         this.currentUser = data;
       });
+
+    this.getListaReservas();
+    this.getListaViviendas();
   }
 
-  public getListaViviendas(){
+  public getListaViviendas(): void{
     this.viviendasService.getViviendaByPropietario(this.currentUser.id)
     .subscribe(data => 
       {
@@ -42,7 +45,11 @@ export class UsuarioComponent implements OnInit {
   }
 
 
-  public getListaReservas(){
-
+  public getListaReservas(): void{
+    this.reservaService.getReservaByInquilino(this.currentUser.id)
+    .subscribe(data => 
+      {
+        this.listaReservas = data;
+      });
   }
 }

@@ -34,7 +34,7 @@ export class ReservaService {
   }
 
   getReservaByInquilino(id: string){
-    return this.http.get<Reserva>(environment.baseURL+"/api/Reservas/getByInquilino/"+id);
+    return this.http.get<Reserva[]>(environment.baseURL+"/api/Reservas/getByInquilino/"+id);
   }
 
   getReservaByVivienda(id: string){
