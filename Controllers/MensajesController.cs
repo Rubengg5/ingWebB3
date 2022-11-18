@@ -6,51 +6,51 @@ namespace WebAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class SigueMeController : ControllerBase
+public class MensajesController : ControllerBase
 {
-    private readonly SigueMeService sigueMeService;
+    private readonly MensajesService mensajesService;
 
-    public SigueMeController(SigueMeService sigueMeService) =>
-        this.sigueMeService = sigueMeService;
+    public MensajesController(MensajesService mensajesService) =>
+        this.mensajesService = mensajesService;
 
     [HttpGet]
-    public async Task<List<SigueMe>> Get() =>
-        await sigueMeService.GetSigueMe();
+    public async Task<List<Mensaje>> Get() =>
+        await mensajesService.GetMensajes();
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<SigueMe>> Get(Guid id)
+    public async Task<ActionResult<Mensaje>> Get(Guid id)
     {
-        var sigueMe = await sigueMeService.GetSigueMeById(id);
+        var mensaje = await mensajesService.GetMensajesById(id);
 
-        if (sigueMe is null)
+        if (mensaje is null)
         {
             return NotFound();
         }
 
-        return sigueMe;
+        return mensaje;
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(SigueMe newSigueMe)
+    public async Task<IActionResult> Post(Mensaje newMensaje)
     {
-        await sigueMeService.CreateSigueMe(newSigueMe);
+        await mensajesService.CreateMensaje(newMensaje);
 
-        return CreatedAtAction(nameof(Get), new { id = newSigueMe.Id }, newSigueMe);
+        return CreatedAtAction(nameof(Get), new { Identificador = newMensaje.Identificador }, newMensaje);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(Guid id, SigueMe updatedSigueMe)
+    public async Task<IActionResult> Update(Guid id, Mensaje updatedMensaje)
     {
-        var sigueMe = await sigueMeService.GetSigueMeById(id);
+        var mensaje = await mensajesService.GetMensajesById(id);
 
-        if (sigueMe is null)
+        if (mensaje is null)
         {
             return NotFound();
         }
 
-        updatedSigueMe.Id = sigueMe.Id;
+        updatedMensaje.Identificador = mensaje.Identificador;
 
-        await sigueMeService.UpdateSigueMe(id, updatedSigueMe);
+        await mensajesService.UpdateMensaje(id, updatedMensaje);
 
         return NoContent();
     }
@@ -58,14 +58,14 @@ public class SigueMeController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
-        var sigueMe = await sigueMeService.GetSigueMeById(id);
+        var mensaje = await mensajesService.GetMensajesById(id);
 
-        if (sigueMe is null)
+        if (mensaje is null)
         {
             return NotFound();
         }
 
-        await sigueMeService.RemoveSigueMe(id);
+        await mensajesService.RemoveMensaje(id);
 
         return NoContent();
     }
@@ -109,16 +109,16 @@ public class SigueMeController : ControllerBase
     //    return sigueMes;
     //}
 
-    [HttpGet("getSeguidores")]
-    public async Task<ActionResult<List<string>>> seguidores(string email)
-    {
-        var seguidores = await sigueMeService.GetSeguidores(email);
+    //[HttpGet("getSeguidores")]
+    //public async Task<ActionResult<List<string>>> seguidores(string email)
+    //{
+    //    var seguidores = await sigueMeService.GetSeguidores(email);
 
-        if (seguidores is null)
-        {
-            return NotFound();
-        }
+    //    if (seguidores is null)
+    //    {
+    //        return NotFound();
+    //    }
 
-        return seguidores;
-    }
+    //    return seguidores;
+    //}
 }
