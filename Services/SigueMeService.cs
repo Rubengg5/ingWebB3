@@ -46,6 +46,8 @@ public class SigueMeService
     //public async Task<SigueMe?> GetReservaByInquilinoId(Guid inquilino) =>
     //    await sigueMeCollection.Find(x => x.Inquilino.Equals(inquilino)).FirstOrDefaultAsync();
 
+    //lat > lat-0.1 && lat < lat+0.1 && lon > lon-0.1 && lon < lon+0.1
+
     public async Task<List<string>> GetSeguidoresAsync(string email) 
     { 
         List<SigueMe> sigueMes = await sigueMeCollection.Find(x => x.Seguido.Equals(email)).ToListAsync();

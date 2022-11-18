@@ -16,7 +16,7 @@ namespace WebAPI.Models
         public string Post { get; set; }
         public double Lat { get; set; }
         public double Lon { get; set; }
-        public string Stamp { get; set; }
+        public DateTime Stamp { get; set; }
         public int Reposts { get; set; }
 
     }

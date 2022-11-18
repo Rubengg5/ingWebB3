@@ -69,6 +69,19 @@ public class TrinosController : ControllerBase
         return trinos;
     }
 
+    [HttpGet("getByDate/{date}")]
+    public async Task<ActionResult<List<Trinos>>> trinosPorFecha(DateTime date)
+    {
+        var trinos = await trinosService.GetTrinosPorFecha(date);
+
+        if (trinos is null)
+        {
+            return NotFound();
+        }
+
+        return trinos;
+    }
+
     //[HttpGet("getByLocalidad/")]
     //public async Task<ActionResult<List<Trinos>>> GetByLocalidad(string localidad)
     //{

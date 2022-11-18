@@ -31,13 +31,16 @@ public class TrinosService
         await trinosCollection.Find(x => x.Autor.Equals(email)).ToListAsync();
 
     public async Task<List<Trinos>> GetTrinosPorTema(string tema) =>
-        await trinosCollection.Find(x => x.Post.Equals(tema)).ToListAsync();
+        await trinosCollection.Find(x => x.Post.Contains(tema)).ToListAsync();
 
     public async Task<List<Trinos>> GetTrinosSeguidos(string email) =>
         await trinosCollection.Find(x => x.Autor.Equals(email)).SortByDescending(x => x.Stamp).ToListAsync();
 
     public async Task<List<Trinos>> GetTrinosCercanos(double lat, double lon) =>
         await trinosCollection.Find(x => x.Lat == lat).SortByDescending(x => x.Stamp).ToListAsync();
+
+    public async Task<List<Trinos>> GetTrinosPorFecha(DateTime date) =>
+    await trinosCollection.Find(x => x.Stamp.Equals(date)).ToListAsync();
 
     //public async Task<List<Trinos>> GetViviendasByLocalidad(string localidad) =>
     //    await viviendasCollection.Find(x => x.Localidad == localidad).ToListAsync();
