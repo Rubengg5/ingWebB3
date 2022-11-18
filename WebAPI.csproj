@@ -5,6 +5,14 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\GasolinerasController.cs" />
+    <Compile Remove="Controllers\MeteoController.cs" />
+    <Compile Remove="Models\SigueMe.cs" />
+    <Compile Remove="Models\Trinos.cs" />
+    <Compile Remove="Services\MeteoService.cs" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Azure.Core" Version="1.25.0" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client.es" Version="5.2.9" />
