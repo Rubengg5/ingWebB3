@@ -29,18 +29,45 @@ public class TrinosController : ControllerBase
 
         return trinos;
     }
-    //[HttpGet("getByPropietario/{id}")]
-    //public async Task<ActionResult<Trinos>> GetByPropietario(Guid id)
-    //{
-    //    var vivienda = await viviendasService.GetViviendasByPropietario(id);
 
-    //    if (vivienda is null)
-    //    {
-    //        return NotFound();
-    //    }
+    [HttpGet("getTrinos/{email}")]
+    public async Task<ActionResult<List<Trinos>>> trinosPorUsuario(string email)
+    {
+        var trinos = await trinosService.GetTrinosPorUsuario(email);
 
-    //    return vivienda;
-    //}
+        if (trinos is null)
+        {
+            return NotFound();
+        }
+
+        return trinos;
+    }
+
+    [HttpGet("getTrinosPorTema/{tema}")]
+    public async Task<ActionResult<List<Trinos>>> trinosPorTema(string tema)
+    {
+        var trinos = await trinosService.GetTrinosPorTema(tema);
+
+        if (trinos is null)
+        {
+            return NotFound();
+        }
+
+        return trinos;
+    }
+
+    [HttpGet("getTrinosSeguidos/{email}")]
+    public async Task<ActionResult<List<Trinos>>> trinosSeguidos(string email)
+    {
+        var trinos = await trinosService.GetTrinosSeguidos(email);
+
+        if (trinos is null)
+        {
+            return NotFound();
+        }
+
+        return trinos;
+    }
 
     //[HttpGet("getByLocalidad/")]
     //public async Task<ActionResult<List<Trinos>>> GetByLocalidad(string localidad)
@@ -63,22 +90,22 @@ public class TrinosController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = newTrinos.Id }, newTrinos);
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Update(Guid id, Trinos updatedTrinos)
-    {
-        var trinos = await trinosService.GetTrinosById(id);
+    //[HttpPut("{id}")]
+    //public async Task<IActionResult> Update(Guid id, Trinos updatedTrinos)
+    //{
+    //    var trinos = await trinosService.GetTrinosById(id);
 
-        if (trinos is null)
-        {
-            return NotFound();
-        }
+    //    if (trinos is null)
+    //    {
+    //        return NotFound();
+    //    }
 
-        updatedTrinos.Id = trinos.Id;
+    //    updatedTrinos.Id = trinos.Id;
 
-        await trinosService.UpdateTrinos(id, updatedTrinos);
+    //    await trinosService.UpdateTrinos(id, updatedTrinos);
 
-        return NoContent();
-    }
+    //    return NoContent();
+    //}
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)

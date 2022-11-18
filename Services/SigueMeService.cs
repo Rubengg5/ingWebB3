@@ -45,4 +45,7 @@ public class SigueMeService
     //public async Task<SigueMe?> GetReservaByInquilinoId(Guid inquilino) =>
     //    await sigueMeCollection.Find(x => x.Inquilino.Equals(inquilino)).FirstOrDefaultAsync();
 
+    public async Task<List<SigueMe>> GetSeguidores(string email) =>
+        await sigueMeCollection.Find(x => x.Seguido.Equals(email)).ToListAsync();
+
 }
