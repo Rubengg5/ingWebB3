@@ -1,6 +1,7 @@
 ﻿using WebAPI.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using System.Linq;
 
 namespace WebAPI.Services;
 
@@ -45,7 +46,17 @@ public class SigueMeService
     //public async Task<SigueMe?> GetReservaByInquilinoId(Guid inquilino) =>
     //    await sigueMeCollection.Find(x => x.Inquilino.Equals(inquilino)).FirstOrDefaultAsync();
 
-    public async Task<List<SigueMe>> GetSeguidores(string email) =>
-        await sigueMeCollection.Find(x => x.Seguido.Equals(email)).ToListAsync();
+    public async Task<List<string>> GetSeguidoresAsync(string email) 
+    { 
+        List<SigueMe> sigueMes = await sigueMeCollection.Find(x => x.Seguido.Equals(email)).ToListAsync();
+        List<string> seguidores = sigueMes.Select(x => x.Seguidor).ToList();
+        return seguidores;
+    }
+
+    public Task<List<string>> GetSeguidores(string email)
+    {
+        List<string> seguidores = sigueMeCollection.Find(x => x.Seguido.Equals(email)).ToList().Select(x => x.Seguidor).ToList();
+        return Task.FromResult(seguidores);
+    }
 
 }

@@ -108,4 +108,17 @@ public class SigueMeController : ControllerBase
 
     //    return sigueMes;
     //}
+
+    [HttpGet("getSeguidores")]
+    public async Task<ActionResult<List<string>>> seguidores(string email)
+    {
+        var seguidores = await sigueMeService.GetSeguidores(email);
+
+        if (seguidores is null)
+        {
+            return NotFound();
+        }
+
+        return seguidores;
+    }
 }
