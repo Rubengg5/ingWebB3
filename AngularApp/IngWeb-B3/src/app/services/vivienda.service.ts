@@ -26,10 +26,9 @@ export class ViviendaService {
     return this.http.get<Vivienda>(environment.baseURL+"/api/Viviendas/"+id);
   }
 
-  updateVivienda(id: string){
+  updateVivienda(vivienda: Vivienda){
     let params = new HttpParams();
-    params = params.append('id', id);
-    return this.http.put<Vivienda>(environment.baseURL+"/api/Viviendas/"+id, id);
+    return this.http.put<Vivienda>(environment.baseURL+"/api/Viviendas/"+vivienda.id, vivienda);
   }
 
   deleteVivienda(id: string){

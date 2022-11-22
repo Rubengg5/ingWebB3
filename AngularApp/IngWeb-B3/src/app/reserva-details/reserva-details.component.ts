@@ -27,4 +27,12 @@ export class ReservaDetailsComponent implements OnInit {
       });
   }
 
+  public modificarReserva(): void {
+    this.reservasService.updateReserva(this.reserva)
+    .subscribe(data => 
+      {
+        this.reserva = data;
+      });
+  }
+
 }

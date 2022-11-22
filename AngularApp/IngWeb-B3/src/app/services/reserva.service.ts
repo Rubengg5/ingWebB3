@@ -23,10 +23,8 @@ export class ReservaService {
     return this.http.get<Reserva>(environment.baseURL+"/api/Reservas/"+id);
   }
 
-  updateReserva(id: string){
-    let params = new HttpParams();
-    params = params.append('id', id);
-    return this.http.put<Reserva>(environment.baseURL+"/api/Reservas/"+id, id);
+  updateReserva(reserva: Reserva){
+    return this.http.put<Reserva>(environment.baseURL+"/api/Reservas/"+reserva.id, reserva);
   }
 
   deleteReserva(id: string){

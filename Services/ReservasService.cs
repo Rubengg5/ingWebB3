@@ -33,8 +33,8 @@ public class ReservasService
     public async Task<List<Reserva>> GetReservasByVivienda(Guid idVivienda) =>
         await reservasCollection.Find(x => x.IdVivienda == idVivienda).ToListAsync();
 
-    public async Task<Reserva?> GetReservaByInquilinoId(Guid inquilino) =>
-        await reservasCollection.Find(x => x.Inquilino==inquilino).FirstOrDefaultAsync();
+    public async Task<List<Reserva>> GetReservaByInquilinoId(Guid inquilino) =>
+        await reservasCollection.Find(x => x.Inquilino==inquilino).ToListAsync();
 
     public async Task CreateReserva(Reserva newReserva) =>
         await reservasCollection.InsertOneAsync(newReserva);
