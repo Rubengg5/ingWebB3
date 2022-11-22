@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseURL: "https://localhost:7266"
+  baseURL: "https://localhost:7266",
+  clientId: "182737891985-bhlpao31dj89qgu93i4pp3die544nomb.apps.googleusercontent.com"
 };
 
 

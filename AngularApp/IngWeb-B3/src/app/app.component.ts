@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Vivienda } from './models/vivienda';
 import { ReservaService } from './services/reserva.service';
 import { ViviendaService } from './services/vivienda.service';
@@ -18,20 +18,14 @@ const routes: Routes = [
 })
 export class AppComponent implements OnInit{
   title = 'IngWeb-B3';
-  //viviendasList: Vivienda[] = [];
-  vivienda: any;
 
   constructor(viviendaService: ViviendaService, reservaService: ReservaService,
     private authGuardService: AuthGuardService) { 
     
-
   }
 
   ngOnInit() {
-
+    
   }
 
-  logout(): void {
-    this.authGuardService.signOut();
-  }
 }

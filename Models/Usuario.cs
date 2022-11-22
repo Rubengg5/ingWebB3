@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebAPI.Models
 {
@@ -6,8 +7,15 @@ namespace WebAPI.Models
     {
         [BsonId]
         public Guid Id { get; set; }
-        public string Nombre { get; set; }
-        public string Email { get; set; }
-        public string Telefono { get; set; }
+        [Required]
+        public string UserName { get; set; }
+        [Required]
+        public string Role { get; set; }
+        [Required]
+        public string BirthDay { get; set; }
+        [Required]
+        public int PasswordSalt { get; set; }
+        [Required]
+        public int PasswordHash { get; set; }
     }
 }
