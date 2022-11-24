@@ -14,6 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import { ViviendasComponent } from './viviendas/viviendas.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import {MatCardModule} from '@angular/material/card';
     UsuarioComponent,
     ViviendaDetailsComponent,
     ReservaDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    ViviendasComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
