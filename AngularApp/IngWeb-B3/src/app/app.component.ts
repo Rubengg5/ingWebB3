@@ -17,7 +17,7 @@ const routes: Routes = [
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'IngWeb-B3';
+  title = 'Telook';
 
   constructor(viviendaService: ViviendaService, reservaService: ReservaService,
     private authGuardService: AuthGuardService) { 
