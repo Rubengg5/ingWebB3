@@ -14,7 +14,7 @@ const routes: Routes = [
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['../styles.css']
 })
 export class AppComponent implements OnInit{
   title = 'Telook';
