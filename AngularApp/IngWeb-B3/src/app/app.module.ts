@@ -17,6 +17,7 @@ import {MatCardModule} from '@angular/material/card';
 import { ViviendasComponent } from './viviendas/viviendas.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ReservasComponent } from './reservas/reservas.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     ViviendasComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ReservasComponent
   ],
   imports: [
     BrowserModule,

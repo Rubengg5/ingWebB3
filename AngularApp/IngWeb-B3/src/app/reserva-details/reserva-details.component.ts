@@ -20,7 +20,7 @@ export class ReservaDetailsComponent implements OnInit {
 
     const id = String(this.route.snapshot.paramMap.get('id'));
 
-    this.reservasService.getReservaByInquilino(id)
+    this.reservasService.getReservaById(id)
     .subscribe(data => 
       {
         this.reserva = data;
