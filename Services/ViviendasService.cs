@@ -31,7 +31,7 @@ public class ViviendasService
         await viviendasCollection.Find(x => x.Localidad == localidad).ToListAsync();
 
     public async Task<List<Vivienda>> GetViviendasByPropietario(Guid id) =>
-        await viviendasCollection.Find(x => x.Propietario.Equals(id)).ToListAsync();
+        await viviendasCollection.Find(x => x.Propietario == id).ToListAsync();
 
     public async Task CreateVivienda(Vivienda newVivienda) =>
         await viviendasCollection.InsertOneAsync(newVivienda);

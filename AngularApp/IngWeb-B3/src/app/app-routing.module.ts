@@ -6,6 +6,7 @@ import { ReservaDetailsComponent } from './reserva-details/reserva-details.compo
 import { TestPabloComponent } from './test-pablo/test-pablo.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { ViviendaDetailsComponent } from './vivienda-details/vivienda-details.component';
+import { ViviendasComponent } from './viviendas/viviendas.component';
 
 const routes: Routes = [
   { path: 'inicio', component: AppComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'reserva/:id', component: ReservaDetailsComponent },
   { path: 'vivienda/:id', component: ViviendaDetailsComponent },
   {path: 'login', component: LoginComponent},
+  {path: 'viviendas/:id', component: ViviendasComponent},
 ];
 
 @NgModule({

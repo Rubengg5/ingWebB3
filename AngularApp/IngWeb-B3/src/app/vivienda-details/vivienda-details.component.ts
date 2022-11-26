@@ -25,10 +25,11 @@ export class ViviendaDetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
 
-    this.viviendasService.getViviendaByPropietario(id)
+    this.viviendasService.getViviendaById(id)
     .subscribe(data => 
       {
         this.vivienda = data;
+        console.log(this.vivienda)
       });
   }
 
