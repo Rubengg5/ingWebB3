@@ -18,13 +18,14 @@ const routes: Routes = [
 })
 export class AppComponent implements OnInit{
   title = 'Telook';
+  
 
-  constructor(viviendaService: ViviendaService, reservaService: ReservaService,
+  constructor(private viviendaService: ViviendaService, reservaService: ReservaService,
     private authGuardService: AuthGuardService) { 
     
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     
   }
 

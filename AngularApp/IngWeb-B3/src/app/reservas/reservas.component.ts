@@ -23,7 +23,6 @@ export class ReservasComponent implements OnInit {
     .subscribe(data => 
       {
         this.reservaList = data;
-        console.log(this.reservaList);
       });
   }
 
