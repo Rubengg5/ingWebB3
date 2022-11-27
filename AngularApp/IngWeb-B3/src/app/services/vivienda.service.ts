@@ -43,7 +43,7 @@ export class ViviendaService {
 
     let params = new HttpParams();
     params = params.append('localidad', localidad);
-    return this.http.get<Vivienda>(environment.baseURL+"/api/Viviendas/getByLocalidad/", {params: params});
+    return this.http.get<Vivienda[]>(environment.baseURL+"/api/Viviendas/getByLocalidad/", {params: params});
   }
 
 }

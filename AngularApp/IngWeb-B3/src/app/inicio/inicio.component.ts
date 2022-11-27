@@ -31,4 +31,13 @@ export class InicioComponent implements OnInit {
       });
   }
 
+  filtrarViviendasByLocalidad(localidad: string){
+    this.viviendaService.getViviendaByLocalidad(localidad)
+    .subscribe(data => 
+      {
+        this.viviendaList = data;
+        console.log(this.viviendaList);
+      });
+  }
+
 }

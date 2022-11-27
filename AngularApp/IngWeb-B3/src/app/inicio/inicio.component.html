@@ -26,6 +26,13 @@
         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Registrarse</button>
       </div>
     </div>
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Localidad</label>
+        <input #localidad type="text" value="" class="form-control" id="localidad" aria-describedby="emailHelp" placeholder="Busca por localidad">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="filtrarViviendasByLocalidad(localidad.value)">Submit</button>
+    </form>
     <div class="overflow-hidden" style="max-height: 40vh;">
       <div class="row-home-images container px-5">
         <div *ngFor="let vivienda of viviendaList" >
