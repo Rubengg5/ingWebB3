@@ -16,13 +16,13 @@
 <body class="bg-light">
   <router-outlet></router-outlet>
   <app-header></app-header>
-    <!--Home-->
-    <div class="px-4 pt-5 my-5 text-center border-bottom">
+  <!--Home-->
+  <div class="px-4 pt-5 my-5 text-center border-bottom">
     <h1 class="display-4 fw-bold">Telook</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">¿Buscas hospedaje al mejor precio? Alquila viviendas de usuarios de cualquier parte del mundo.</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-        <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" [routerLink]="['/login']">Iniciar Sesión</button>
+        <button type="button" class="btn btn btn-warning btn-lg px-4 me-sm-3" [routerLink]="['/login']">Iniciar Sesión</button>
         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Registrarse</button>
       </div>
     </div>
@@ -30,7 +30,7 @@
         <label for="exampleInputEmail1">Localidad</label>
         <input #localidad type="text" value="" class="form-control" id="localidad" aria-describedby="emailHelp" placeholder="Busca por localidad">
       </div>
-      <button type="submit" class="btn btn-primary" (click)="filtrarViviendasByLocalidad(localidad.value)">Submit</button>
+      <button type="submit" class="btn btn btn-warning" (click)="filtrarViviendasByLocalidad(localidad.value)">Submit</button>
     <div class="overflow-hidden" style="max-height: 40vh;">
       <div class="row-home-images container px-5">
         <div *ngFor="let vivienda of viviendaList" >
