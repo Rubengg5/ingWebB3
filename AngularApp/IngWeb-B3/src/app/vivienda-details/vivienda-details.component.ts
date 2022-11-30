@@ -37,7 +37,8 @@ export class ViviendaDetailsComponent implements OnInit {
     this.reservaService.getReservaByFechas(fechaEntrada, fechaSalida)
     .subscribe(data => 
       {
-        //if(data.)
+        this.vivienda = data;
+        console.log(this.vivienda);
       });
   }
 
