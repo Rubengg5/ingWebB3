@@ -19,6 +19,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { ViviendaCreateComponent } from './vivienda-create/vivienda-create.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { InicioComponent } from './inicio/inicio.component';
     HeaderComponent,
     FooterComponent,
     ReservasComponent,
-    InicioComponent
+    InicioComponent,
+    ViviendaCreateComponent
   ],
   imports: [
     BrowserModule,
