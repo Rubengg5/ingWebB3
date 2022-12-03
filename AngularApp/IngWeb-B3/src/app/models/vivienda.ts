@@ -2,6 +2,9 @@ import { Ubicacion } from "./ubicacion";
 
 export interface Vivienda{
     id: string;
+    nombre: string;
+    descripcion: string;
+    imagen: string;
     propietario: string;
     localidad: string;
     provincia: string;

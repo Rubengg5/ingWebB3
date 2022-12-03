@@ -20,6 +20,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ViviendaCreateComponent } from './vivienda-create/vivienda-create.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { v4 as uuidv4 } from 'uuid';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { ViviendaCreateComponent } from './vivienda-create/vivienda-create.compo
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',
