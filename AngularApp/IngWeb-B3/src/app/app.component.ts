@@ -8,16 +8,23 @@ import { TestPabloComponent } from './test-pablo/test-pablo.component';
 import { SocialAuthService } from 'angularx-social-login';
 import { AuthGuardService } from './services/auth-guard.service';
 
+
+declare var ol: any;
+
+
 const routes: Routes = [
   { path: '/test-pablo', component: TestPabloComponent },
 ];
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['../styles.css']
 })
+
 export class AppComponent implements OnInit{
   title = 'Telook';
+  map: any;
   
 
   constructor(private viviendaService: ViviendaService, reservaService: ReservaService,
