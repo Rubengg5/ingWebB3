@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 import { ReservaService } from '../services/reserva.service';
 import { UsuarioService } from '../services/usuario.service';
 import { ViviendaService } from '../services/vivienda.service';
@@ -42,7 +43,9 @@ export class ViviendaDetailsComponent implements OnInit {
       });
   }
 
-  
+  getImageURL(url: string): string{
+    return environment.cloudinaryURL + url;
+  }
 
 
 }

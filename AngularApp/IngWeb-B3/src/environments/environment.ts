@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   baseURL: "https://localhost:7266",
-  clientId: "182737891985-bhlpao31dj89qgu93i4pp3die544nomb.apps.googleusercontent.com"
+  clientId: "182737891985-bhlpao31dj89qgu93i4pp3die544nomb.apps.googleusercontent.com",
+  cloudinaryURL: "https://res.cloudinary.com/dee6pfpam/image/upload/v1669835212/"
 };
 
 
