@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input , OnInit } from '@angular/core';
 declare var ol: any;
 
 @Component({
@@ -9,10 +8,12 @@ declare var ol: any;
 })
 
 export class MapaComponent implements OnInit {
+  @Input() latitud = -1;
+  @Input() longitud = -1;
   map: any;
   constructor() { }
-  latitude: number = 18.5204;
-  longitude: number = 73.8567;
+  /*latitude: number = 18.5204;
+  longitude: number = 73.8567;*/
 
   ngOnInit(): void {
     this.map = new ol.Map({
@@ -23,15 +24,16 @@ export class MapaComponent implements OnInit {
         })
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([73.8567, 18.5204]),
+        center: ol.proj.fromLonLat([0, 0]),
         zoom: 8
       })
     });
+    this.setCenter(this.latitud, this.longitud);
   }
 
-  setCenter() {
+  setCenter(latitud: number, longitud: number) {
     var view = this.map.getView();
-    view.setCenter(ol.proj.fromLonLat([this.longitude, this.latitude]));
+    view.setCenter(ol.proj.fromLonLat([longitud, latitud]));
     view.setZoom(8);
   }
 
