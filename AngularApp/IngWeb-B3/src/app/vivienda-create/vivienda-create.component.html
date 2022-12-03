@@ -1,24 +1,24 @@
 <app-header></app-header>
 
 <div class="container-xxl bd-gutter" style="margin-top: 2%;">
-    <form>
+    <form (ngSubmit)="createVivienda()" #forma="ngForm">
         <div class="form-row">
             <div class="form-group col-md-6">
             <label for="inputNombre">Nombre</label>
-            <input type="Nombre" class="form-control" id="inputNombre" placeholder="Nombre">
+            <input type="text" [(ngModel)]="newVivienda.nombre" class="form-control" id="inputNombre" placeholder="Nombre" name="nombre" required>
             </div>
             <div class="form-group col-md-6">
             <label for="inputDescripcion">Descripción</label>
-            <input type="Descripcion" class="form-control" id="inputDescripcion" placeholder="Descripción">
+            <input type="Descripcion" class="form-control" id="inputDescripcion" placeholder="Descripción" name="descripcion">
             </div>
         </div>
         <div class="form-group">
             <label for="inputLocalidad">Localidad</label>
-            <input type="text" class="form-control" id="inputLocalidad" placeholder="Nerja">
+            <input type="text" [(ngModel)]="newVivienda.localidad" class="form-control" id="inputLocalidad" required placeholder="Localidad" name="localidad">
         </div>
         <div class="form-group">
             <label for="inputProvincia">Provincia</label>
-            <input type="text" class="form-control" id="inputProvincia" placeholder="Málaga">
+            <input type="text" [(ngModel)]="newVivienda.provincia" class="form-control" id="inputProvincia" placeholder="Provincia" required name="provincia">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -26,11 +26,8 @@
             <input type="text" class="form-control" id="inputUbicacion">
             </div>
             <div class="form-group col-md-4">
-            <!-- <label for="inputCompleta">Completa</label>
-            <select id="inputCompleta" class="form-select">
-                <option selected>Sí</option>
-                <option>No</option>
-            </select> -->
+            <label for="inputCompleta">Tipo</label>
+            <input type="text" [(ngModel)]="newVivienda.tipo" id="inputCompleta" class="form-control" required name="tipo">
             </div>
             <div class="form-group col-md-2">
             <label for="inputImagen">Imagen</label>
@@ -39,7 +36,7 @@
         </div>
         <div class="form-group">
             <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCompleta">
+            <input required [(ngModel)]="newVivienda.viviendaCompleta" class="form-check-input" type="checkbox" id="gridCompleta" name="completa">
             <label class="form-check-label" for="gridCompleta">
                 Completa
             </label>
