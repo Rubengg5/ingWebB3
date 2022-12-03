@@ -27,7 +27,7 @@ export class MapaComponent implements OnInit {
       })
     });
     this.setCenter(this.latitud, this.longitud);
-    this.colocarChincheta(36,3);
+    this.colocarChincheta(this.latitud,this.longitud);
   }
 
   setCenter(latitud: number, longitud: number) {
