@@ -23,6 +23,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ViviendaCreateComponent } from './vivienda-create/vivienda-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { v4 as uuidv4 } from 'uuid';
+import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { v4 as uuidv4 } from 'uuid';
     FooterComponent,
     ReservasComponent,
     InicioComponent,
-    ViviendaCreateComponent
+    ViviendaCreateComponent,
+    ReservaCreateComponent
   ],
   imports: [
     BrowserModule,

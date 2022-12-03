@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 import { ReservaService } from '../services/reserva.service';
 import { UsuarioService } from '../services/usuario.service';
+import { ViviendaService } from '../services/vivienda.service';
 
 @Component({
   selector: 'app-reserva-details',
@@ -11,10 +13,12 @@ import { UsuarioService } from '../services/usuario.service';
 export class ReservaDetailsComponent implements OnInit {
 
   reserva: any = null;
+  vivienda: any = null;
 
   constructor(private route: ActivatedRoute,
     private usuarioService: UsuarioService,
-    private reservasService: ReservaService) { }
+    private reservasService: ReservaService,
+    private viviendaService: ViviendaService) { }
 
   ngOnInit(): void {
 
@@ -24,6 +28,11 @@ export class ReservaDetailsComponent implements OnInit {
     .subscribe(data => 
       {
         this.reserva = data;
+        this.viviendaService.getViviendaById(this.reserva.idVivienda)
+        .subscribe(data =>
+          {
+            this.vivienda = data;
+          })
       });
   }
 
@@ -33,6 +42,10 @@ export class ReservaDetailsComponent implements OnInit {
       {
         this.reserva = data;
       });
+  }
+
+  getImageURL(url: string): string{
+    return environment.cloudinaryURL + url;
   }
 
 }
