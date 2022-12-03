@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CloudinaryModule } from '@cloudinary/ng';
 import { AppComponent } from './app.component';
 import { TestPabloComponent } from './test-pablo/test-pablo.component';
+import { MapaComponent } from './mapa/mapa.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { ViviendaDetailsComponent } from './vivienda-details/vivienda-details.component';
@@ -33,6 +34,7 @@ import { v4 as uuidv4 } from 'uuid';
     ReservaDetailsComponent,
     LoginComponent,
     ViviendasComponent,
+    MapaComponent,
     HeaderComponent,
     FooterComponent,
     ReservasComponent,

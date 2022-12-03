@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
+import { MapaComponent } from './mapa/mapa.component';
 import { ReservaDetailsComponent } from './reserva-details/reserva-details.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { TestPabloComponent } from './test-pablo/test-pablo.component';
@@ -14,6 +15,7 @@ import { ViviendasComponent } from './viviendas/viviendas.component';
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'pablo', component: TestPabloComponent },
+  { path: 'mapa', component: MapaComponent},
   { path: 'usuario/:id', component: UsuarioComponent },
   { path: 'reserva/:id', component: ReservaDetailsComponent },
   { path: 'vivienda/:id', component: ViviendaDetailsComponent },
