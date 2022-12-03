@@ -3,6 +3,7 @@ import { Vivienda } from '../models/vivienda';
 import { Ubicacion } from '../models/ubicacion';
 import { ViviendaService } from '../services/vivienda.service';
 import {v4 as uuidv4} from 'uuid';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-vivienda-create',
@@ -28,7 +29,11 @@ export class ViviendaCreateComponent implements OnInit {
     tipo: "",
     viviendaCompleta: true
   }
-  constructor(private viviendasService: ViviendaService) { }
+
+  responseOK: boolean = false;
+
+  constructor(private viviendasService: ViviendaService, private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -36,8 +41,13 @@ export class ViviendaCreateComponent implements OnInit {
   createVivienda(){
     this.newVivienda.id = uuidv4();
     this.viviendasService.createVivivenda(this.newVivienda).subscribe(data => 
-      {
-        console.log(data)
-      });
+    {
+        this.responseOK = data !== null;
+    });
+
+    if(this.responseOK){
+      this.router.navigate(['/vivienda', this.newVivienda.id])
+    }
+    
   }
 }
