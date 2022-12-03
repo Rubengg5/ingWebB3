@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { MapaComponent } from '../mapa/mapa.component';
 import { ReservaService } from '../services/reserva.service';
 import { UsuarioService } from '../services/usuario.service';
 import { ViviendaService } from '../services/vivienda.service';
+
 
 @Component({
   selector: 'app-vivienda-details',
@@ -11,10 +13,12 @@ import { ViviendaService } from '../services/vivienda.service';
   styleUrls: ['./vivienda-details.component.css']
 })
 export class ViviendaDetailsComponent implements OnInit {
-
+  mapComponent : MapaComponent;
   vivienda: any = null;
   fechaEntrada: string = "";
   fechaSalida: string = "";
+  latitudVivienda: number = 0;
+  longitudVivienda: number = 0;
   nPersonas: number = 0;
   puedeReservar: boolean = false;
 
@@ -25,13 +29,15 @@ export class ViviendaDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
-
     this.viviendasService.getViviendaById(id)
     .subscribe(data => 
       {
         this.vivienda = data;
-        console.log(this.vivienda)
+        console.log(this.vivienda);
+        this.latitudVivienda = this.vivienda.ubicacion.lat;
+        this.longitudVivienda = this.vivienda.ubicacion.lon;
       });
+
   }
 
   getReservaByFecha(fechaEntrada: string, fechaSalida: string){
@@ -46,6 +52,5 @@ export class ViviendaDetailsComponent implements OnInit {
   getImageURL(url: string): string{
     return environment.cloudinaryURL + url;
   }
-
 
 }

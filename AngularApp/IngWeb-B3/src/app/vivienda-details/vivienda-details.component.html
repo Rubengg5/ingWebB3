@@ -8,6 +8,7 @@
               <p class="col-md-8 fs-4">{{vivienda.descripcion}} / {{vivienda.localidad}}</p>
               <p>{{vivienda.provincia}}</p>
               <button class="btn btn-primary btn-lg" type="button">Por si queremos redireccionar a algún lao</button>
+              <app-mapa [latitud]="latitudVivienda" [longitud]="longitudVivienda"></app-mapa>
             </div>
         </div>
     
