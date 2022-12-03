@@ -33,7 +33,7 @@ export class MapaComponent implements OnInit {
   setCenter(latitud: number, longitud: number) {
     var view = this.map.getView();
     view.setCenter(ol.proj.fromLonLat([longitud, latitud]));
-    view.setZoom(8);
+    view.setZoom(15);
   }
 
   colocarChincheta(latitud: number, longitud: number) {
