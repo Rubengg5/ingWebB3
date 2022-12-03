@@ -12,8 +12,6 @@ export class MapaComponent implements OnInit {
   @Input() longitud = -1;
   map: any;
   constructor() { }
-  /*latitude: number = 18.5204;
-  longitude: number = 73.8567;*/
 
   ngOnInit(): void {
     this.map = new ol.Map({
@@ -29,12 +27,30 @@ export class MapaComponent implements OnInit {
       })
     });
     this.setCenter(this.latitud, this.longitud);
+    this.colocarChincheta(36,3);
   }
 
   setCenter(latitud: number, longitud: number) {
     var view = this.map.getView();
     view.setCenter(ol.proj.fromLonLat([longitud, latitud]));
     view.setZoom(8);
+  }
+
+  colocarChincheta(latitud: number, longitud: number) {
+    var markers = new ol.layer.Vector({
+      source: new ol.source.Vector(),
+      style: new ol.style.Style({
+        image: new ol.style.Icon({
+          anchor: [0.5, 1],
+          scale: 0.05,
+          src: 'https://cdn-icons-png.flaticon.com/512/25/25613.png'
+        })
+      })
+    });
+    this.map.addLayer(markers);
+
+    var marker = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([longitud, latitud])));
+    markers.getSource().addFeature(marker);
   }
 
 }
