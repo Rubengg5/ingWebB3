@@ -12,6 +12,7 @@ import { TestPabloComponent } from './test-pablo/test-pablo.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { ViviendaCreateComponent } from './vivienda-create/vivienda-create.component';
 import { ViviendaDetailsComponent } from './vivienda-details/vivienda-details.component';
+import { ViviendaModifyComponent } from './vivienda-modify/vivienda-modify.component';
 import { ViviendasComponent } from './viviendas/viviendas.component';
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'reservas/:id', component: ReservasComponent},
   {path: 'newVivienda', component: ViviendaCreateComponent},
   {path: 'newReserva/:id', component: ReservaCreateComponent},
-  {path: 'modifyReserva/:id', component: ReservaModifyComponent}
+  {path: 'modifyReserva/:id', component: ReservaModifyComponent},
+  {path: 'modifyVivienda/:id', component: ViviendaModifyComponent}
 ];
 
 @NgModule({

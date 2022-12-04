@@ -31,4 +31,12 @@ export class ViviendaModifyComponent implements OnInit {
       });
   }
 
+  deleteVivienda(){
+    this.viviendasService.deleteVivienda(this.vivienda)
+    .subscribe(data => 
+      {
+
+      });
+  }
+
 }
