@@ -26,4 +26,12 @@ export class ReservasComponent implements OnInit {
       });
   }
 
+  searchByDate(fechaEntrada: string, fechaSalida: string){
+    this.reservasService.getReservaByFechas(fechaEntrada, fechaSalida)
+    .subscribe(data =>
+      {
+        this.reservaList = data;
+      });
+  }
+
 }

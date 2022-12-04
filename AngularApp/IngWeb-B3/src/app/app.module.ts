@@ -26,6 +26,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
 import { ReservaModifyComponent } from './reserva-modify/reserva-modify.component';
 import { ViviendaModifyComponent } from './vivienda-modify/vivienda-modify.component';
+import { ReservasViviendaComponent } from './reservas-vivienda/reservas-vivienda.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { ViviendaModifyComponent } from './vivienda-modify/vivienda-modify.compo
     ViviendaCreateComponent,
     ReservaCreateComponent,
     ReservaModifyComponent,
-    ViviendaModifyComponent
+    ViviendaModifyComponent,
+    ReservasViviendaComponent
   ],
   imports: [
     BrowserModule,

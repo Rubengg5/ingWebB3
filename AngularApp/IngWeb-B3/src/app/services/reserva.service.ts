@@ -36,13 +36,13 @@ export class ReservaService {
   }
 
   getReservaByVivienda(id: string){
-    return this.http.get<Reserva>(environment.baseURL+"/api/Reservas/getByVivienda/"+id);
+    return this.http.get<Reserva[]>(environment.baseURL+"/api/Reservas/getByVivienda/"+id);
   }
 
   getReservaByFechas(fechaEntrada: string, fechaSalida: string){
     let params = new HttpParams();
     params = params.append('fechaEntrada', fechaEntrada);
     params = params.append('fechaSalida', fechaSalida);
-    return this.http.get<Reserva>(environment.baseURL+"/api/Reservas/getByFecha/", {params: params});
+    return this.http.get<Reserva[]>(environment.baseURL+"/api/Reservas/getByFecha/", {params: params});
   }
 }
