@@ -7,6 +7,7 @@ import { MapaComponent } from './mapa/mapa.component';
 import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
 import { ReservaDetailsComponent } from './reserva-details/reserva-details.component';
 import { ReservaModifyComponent } from './reserva-modify/reserva-modify.component';
+import { ReservasViviendaComponent } from './reservas-vivienda/reservas-vivienda.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { TestPabloComponent } from './test-pablo/test-pablo.component';
 import { UsuarioComponent } from './usuario/usuario.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'newVivienda', component: ViviendaCreateComponent},
   {path: 'newReserva', component: ReservaCreateComponent},
   {path: 'modifyReserva/:id', component: ReservaModifyComponent},
-  {path: 'modifyVivienda/:id', component: ViviendaModifyComponent}
+  {path: 'modifyVivienda/:id', component: ViviendaModifyComponent},
+  {path: 'reservasVivienda/:id', component: ReservasViviendaComponent}
 ];
 
 @NgModule({

@@ -29,6 +29,7 @@ export class ViviendaModifyComponent implements OnInit {
       {
         console.log(data);
       });
+    this.router.navigate(['/vivienda', this.vivienda.id])
   }
 
   deleteVivienda(){
@@ -37,6 +38,7 @@ export class ViviendaModifyComponent implements OnInit {
       {
 
       });
+    this.router.navigate(['/viviendas', this.vivienda.propietario])
   }
 
 }
