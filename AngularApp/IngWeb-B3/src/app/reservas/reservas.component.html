@@ -21,6 +21,15 @@
     <div class="container px-4 py-5" id="custom-cards">
       <h1 class="pb-1 border-bottom">Tus reservas</h1>
 
+      <input #fechaEntrada type="date" value="" class="col form-control px-4 me-sm-3" id="fechaEntrada" placeholder="Fecha de Entrada">
+      <br>
+      <br>
+      <input #fechaSalida type="date" value="" class="col form-control px-4 me-sm-3" id="fechaSalida" placeholder="Fecha de Salida">
+      <br>
+      <br>
+      <button type="submit" class="btn btn-warning" (click)="searchByDate(fechaEntrada.value, fechaSalida.value)">Buscar</button>
+      <br>
+      <br>
       <div *ngFor="let reserva of reservaList" class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
         <div class="col">
           <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://cdn.pixabay.com/photo/2016/08/11/23/48/mountains-1587287__340.jpg');" [routerLink]="['/reserva', reserva.id]">
