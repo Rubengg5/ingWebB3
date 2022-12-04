@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<div class="container-xxl bd-gutter" style="margin-top: 2%;">
+    <form (ngSubmit)="modifyVivienda()" #forma="ngForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            <label for="inputNombre">Nombre</label>
+            <input type="text" [(ngModel)]="vivienda.nombre" class="form-control" id="inputNombre" placeholder="Nombre" name="nombre" required>
+            </div>
+            <div class="form-group col-md-6">
+            <label for="inputDescripcion">Descripción</label>
+            <input type="Descripcion" [(ngModel)]="vivienda.descripcion" class="form-control" id="inputDescripcion" placeholder="Descripción" name="descripcion">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputLocalidad">Localidad</label>
+            <input type="text" [(ngModel)]="vivienda.localidad" class="form-control" id="inputLocalidad" required placeholder="Localidad" name="localidad">
+        </div>
+        <div class="form-group">
+            <label for="inputProvincia">Provincia</label>
+            <input type="text" [(ngModel)]="vivienda.provincia" class="form-control" id="inputProvincia" placeholder="Provincia" required name="provincia">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            <label for="inputUbicacion">Ubicación</label>
+            <input type="text" class="form-control" id="inputUbicacion">
+            </div>
+            <div class="form-group col-md-4">
+            <label for="inputCompleta">Tipo</label>
+            <input type="text" [(ngModel)]="vivienda.tipo" id="inputCompleta" class="form-control" required name="tipo">
+            </div>
+            <div class="form-group col-md-2">
+            <label for="inputImagen">Imagen</label>
+            <input type="text" class="form-control" id="inputImagen">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+            <input required [(ngModel)]="vivienda.viviendaCompleta" class="form-check-input" type="checkbox" id="gridCompleta" name="completa">
+            <label class="form-check-label" for="gridCompleta">
+                Completa
+            </label>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-warning">Guardar cambios</button>
+        </form>
+</div>
+
+<app-footer></app-footer>

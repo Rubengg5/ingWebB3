@@ -24,6 +24,8 @@ import { ViviendaCreateComponent } from './vivienda-create/vivienda-create.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { v4 as uuidv4 } from 'uuid';
 import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
+import { ReservaModifyComponent } from './reserva-modify/reserva-modify.component';
+import { ViviendaModifyComponent } from './vivienda-modify/vivienda-modify.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { ReservaCreateComponent } from './reserva-create/reserva-create.componen
     ReservasComponent,
     InicioComponent,
     ViviendaCreateComponent,
-    ReservaCreateComponent
+    ReservaCreateComponent,
+    ReservaModifyComponent,
+    ViviendaModifyComponent
   ],
   imports: [
     BrowserModule,
