@@ -1,8 +1,9 @@
 <app-header></app-header>
 
-<div class="container-xxl bd-gutter" style="margin-top: 2%;">
+<div class="container-xxl bd-gutter p-5 mb-4 bg-light rounded-3">
+    <h1 class="display-5 fw-bold">Nueva vivienda</h1>
     <form (ngSubmit)="createVivienda()" #forma="ngForm">
-        <div class="form-row">
+        <div class="row align-items-md-stretch">
             <div class="form-group col-md-6">
             <label for="inputNombre">Nombre</label>
             <input type="text" [(ngModel)]="newVivienda.nombre" class="form-control" id="inputNombre" placeholder="Nombre" name="nombre" required>
@@ -20,7 +21,7 @@
             <label for="inputProvincia">Provincia</label>
             <input type="text" [(ngModel)]="newVivienda.provincia" class="form-control" id="inputProvincia" placeholder="Provincia" required name="provincia">
         </div>
-        <div class="form-row">
+        <div class="row align-items-md-stretch">
             <div class="form-group col-md-6">
             <label for="inputUbicacion">Ubicación</label>
             <input type="text" class="form-control" id="inputUbicacion">
@@ -34,17 +35,19 @@
             <input type="text" class="form-control" id="inputImagen">
             </div>
         </div>
-        <div class="form-group">
-            <div class="form-check">
-            <input required [(ngModel)]="newVivienda.viviendaCompleta" class="form-check-input" type="checkbox" id="gridCompleta" name="completa">
-            <label class="form-check-label" for="gridCompleta">
-                Completa
-            </label>
+        <div class="row align-items-md-stretch">
+            <div class="form-group col-md-2">
+                <div class="form-check">
+                <input required [(ngModel)]="newVivienda.viviendaCompleta" class="form-check-input" type="checkbox" id="gridCompleta" name="completa">
+                <label class="form-check-label" for="gridCompleta">
+                    Completa
+                </label>
+                </div>
             </div>
         </div>
         <br>
         <button type="submit" class="btn btn-warning">Crear vivienda</button>
-        </form>
+    </form>
 </div>
 
 <app-footer></app-footer>
