@@ -7,13 +7,9 @@
             <h4 class="display-5 fw-bold">{{vivienda.nombre}}</h4>
             <p class="col-md-8 fs-4">{{vivienda.descripcion}}</p>
             <p> {{vivienda.localidad}}, {{vivienda.provincia}}</p>
-            <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/vivienda/:id, {{vivienda.id}}']">Ver Vivienda</button>
+            <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/modifyVivienda', vivienda.id]">Editar Vivienda</button>
             <br>
             <br>
-            <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/newVivienda']">Crear Vivienda</button>
-            <br>
-            <br>
-            <! ––QUITAR EL MAPA Y PASARLO A /VIVIENDAS/ID --!>
             <app-mapa [latitud]="latitudVivienda" [longitud]="longitudVivienda"></app-mapa>
           </div>
         </div>

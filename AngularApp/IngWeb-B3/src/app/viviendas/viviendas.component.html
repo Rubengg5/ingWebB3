@@ -20,7 +20,7 @@
     <!--Container-->
     <div class="container px-4 py-5" id="custom-cards">
       <h1 class="pb-1 border-bottom">Tus viviendas</h1>
-  
+
       <div *ngFor="let vivienda of viviendaList" class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
         <div class="col">
           <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('{{getImageURL(vivienda.imagen)}}');" [routerLink]="['/vivienda', vivienda.id]">
@@ -43,6 +43,9 @@
           </div>
         </div>
       </div>
+      <br>
+      <br>
+      <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/newVivienda']">Crear Vivienda</button>
     </div>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
