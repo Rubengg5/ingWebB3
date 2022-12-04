@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'viviendas/:id', component: ViviendasComponent},
   {path: 'reservas/:id', component: ReservasComponent},
   {path: 'newVivienda', component: ViviendaCreateComponent},
-  {path: 'newReserva', component: ReservaCreateComponent},
+  {path: 'newReserva/:id', component: ReservaCreateComponent},
   {path: 'modifyReserva/:id', component: ReservaModifyComponent},
   {path: 'modifyVivienda/:id', component: ViviendaModifyComponent},
   {path: 'reservasVivienda/:id', component: ReservasViviendaComponent}

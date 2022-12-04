@@ -33,7 +33,7 @@ export class ViviendaModifyComponent implements OnInit {
   }
 
   deleteVivienda(){
-    this.viviendasService.deleteVivienda(this.vivienda)
+    this.viviendasService.deleteVivienda(this.vivienda.id)
     .subscribe(data => 
       {
 

@@ -36,12 +36,12 @@ export class ReservaModifyComponent implements OnInit {
   }
 
   deleteReserva(){
-    this.reservasService.deleteReserva(this.reserva)
+    this.reservasService.deleteReserva(this.reserva.id)
     .subscribe(data =>
       {
         
       });
-      
+      this.router.navigate(['/reservas', this.reserva.inquilino])
   }
 
 }
