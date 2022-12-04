@@ -4,10 +4,6 @@
     <form (ngSubmit)="createReserva()" #forma="ngForm">
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputNombre">Reserva para la Vivienda</label>
-          <input type="date" [(ngModel)]="newReserva.fechaEntrada" class="form-control" id="inputNombre" placeholder="Nombre" name="fechaEntrada" required>
-        </div>
-        <div class="form-group col-md-6">
           <label for="inputNombre">Fecha de entrada</label>
           <input type="date" [(ngModel)]="newReserva.fechaEntrada" class="form-control" id="inputNombre" placeholder="Nombre" name="fechaEntrada" required>
         </div>
