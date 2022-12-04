@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 import { Vivienda } from '../models/vivienda';
 import { UsuarioService } from '../services/usuario.service';
 import { ViviendaService } from '../services/vivienda.service';
@@ -26,6 +27,10 @@ export class ViviendasComponent implements OnInit {
         this.viviendaList = data;
         console.log(this.viviendaList);
       });
+  }
+
+  getImageURL(url: string): string{
+    return environment.cloudinaryURL + url;
   }
 
 }
