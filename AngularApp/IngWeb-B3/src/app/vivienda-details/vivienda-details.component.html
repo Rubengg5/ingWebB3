@@ -8,6 +8,7 @@
             <p class="col-md-8 fs-4">{{vivienda.descripcion}}</p>
             <p> {{vivienda.localidad}}, {{vivienda.provincia}}</p>
             <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/modifyVivienda', vivienda.id]">Editar Vivienda</button>
+            <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/newReserva', vivienda.id]">Hacer Reserva</button>
             <br>
             <br>
             <app-mapa [latitud]="latitudVivienda" [longitud]="longitudVivienda"></app-mapa>

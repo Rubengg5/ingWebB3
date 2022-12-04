@@ -27,7 +27,6 @@ export class ReservaCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.newReserva.idVivienda = String(this.route.snapshot.paramMap.get('id'));
-
   }
 
   createReserva(){
