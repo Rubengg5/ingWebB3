@@ -61,6 +61,7 @@ export class ViviendaCreateComponent implements OnInit {
     {
       this.lat= data.lat;
       this.lon= data.lon;
+      this.newVivienda.ubicacion = data
     })
     }
   }
