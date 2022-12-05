@@ -73,16 +73,16 @@ namespace WebAPI.Controllers
     public class GasolinerasController : ControllerBase
     {
         [HttpGet("municipio")]
-        public ActionResult<string> GetGasolineraByMunicipio([FromQuery] string municipio)
+        public ActionResult<Feature> GetGasolineraByMunicipio([FromQuery] string municipio)
         {
             var client = new RestClient("https://services1.arcgis.com/");
             var request = new RestRequest($"nCKYwcSONQTkPA4K/arcgis/rest/services/Gasolineras_Pro/FeatureServer/0/query?where=Municipio%20%3D%20'{municipio.ToUpper()}'&outFields=Provincia,Municipio,Localidad,Código_po,Longitud,Latitud,Precio_gas,Precio_g_3,Precio_g_5,Precio_g_6,Horario,Dirección&outSR=4326&f=json", Method.Get);
             var response = client.Execute(request);
             Root respuesta = JsonConvert.DeserializeObject<Root>(response.Content.ToString());
-            var gasolineras = respuesta.features; //Probando, esto esto es una lista de obketos gasolineras, estos objetos tienen dos atributos: uno de ellos coordenadas, otro precios de gasolina etc.
-            if (response.Content != null)
+            Feature gasolinera = respuesta.features[0];
+            if (gasolinera != null)
             {
-                return response.Content.ToString();
+                return gasolinera;
             }
             else
             {
@@ -90,16 +90,16 @@ namespace WebAPI.Controllers
             }
         }
         [HttpGet("provincia")]
-        public ActionResult<string> GetGasolineraByCoordenada([FromQuery] string provincia)
+        public ActionResult<Feature> GetGasolineraByCoordenada([FromQuery] string provincia)
         {
             var client = new RestClient("https://services1.arcgis.com/");
             var request = new RestRequest($"nCKYwcSONQTkPA4K/arcgis/rest/services/Gasolineras_Pro/FeatureServer/0/query?where=Provincia%20%3D%20'{provincia.ToUpper()}'&outFields=Provincia,Municipio,Localidad,Código_po,Longitud,Latitud,Precio_gas,Precio_g_3,Precio_g_5,Precio_g_6,Horario,Dirección&outSR=4326&f=json", Method.Get);
             var response = client.Execute(request);
             Root respuesta = JsonConvert.DeserializeObject<Root>(response.Content.ToString());
-            var gasolineras = respuesta.features; //Probando, esto esto es una lista de obketos gasolineras, estos objetos tienen dos atributos: uno de ellos coordenadas, otro precios de gasolina etc.
-            if (response.Content != null)
+            Feature gasolinera = respuesta.features[0];
+            if (gasolinera != null)
             {
-                return response.Content.ToString();
+                return gasolinera;
             }
             else
             {

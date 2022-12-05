@@ -27,6 +27,7 @@ import { ReservaCreateComponent } from './reserva-create/reserva-create.componen
 import { ReservaModifyComponent } from './reserva-modify/reserva-modify.component';
 import { ViviendaModifyComponent } from './vivienda-modify/vivienda-modify.component';
 import { ReservasViviendaComponent } from './reservas-vivienda/reservas-vivienda.component';
+import { GasolinerasComponent } from './gasolineras/gasolineras.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ReservasViviendaComponent } from './reservas-vivienda/reservas-vivienda
     ReservaCreateComponent,
     ReservaModifyComponent,
     ViviendaModifyComponent,
-    ReservasViviendaComponent
+    ReservasViviendaComponent,
+    GasolinerasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { GasolinerasComponent } from './gasolineras/gasolineras.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { MapaComponent } from './mapa/mapa.component';
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path: 'newReserva/:id', component: ReservaCreateComponent},
   {path: 'modifyReserva/:id', component: ReservaModifyComponent},
   {path: 'modifyVivienda/:id', component: ViviendaModifyComponent},
-  {path: 'reservasVivienda/:id', component: ReservasViviendaComponent}
+  {path: 'reservasVivienda/:id', component: ReservasViviendaComponent},
+  {path: 'gasolineras', component: GasolinerasComponent}
 ];
 
 @NgModule({
