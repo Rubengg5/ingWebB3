@@ -1,4 +1,4 @@
-import { Component, Input , OnInit } from '@angular/core';
+import { Component, Input , OnInit, SimpleChanges } from '@angular/core';
 declare var ol: any;
 
 @Component({
@@ -11,9 +11,12 @@ export class MapaComponent implements OnInit {
   @Input() latitud = -1;
   @Input() longitud = -1;
   map: any;
+  iniciado: boolean;
+  markers : any;
   constructor() { }
 
   ngOnInit(): void {
+    console.log("ngOnInit")
     this.map = new ol.Map({
       target: 'map',
       layers: [
@@ -26,18 +29,35 @@ export class MapaComponent implements OnInit {
         zoom: 8
       })
     });
+    this.iniciarMarkers();
     this.setCenter(this.latitud, this.longitud);
     this.colocarChincheta(this.latitud,this.longitud);
+    this.iniciado = true
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.iniciado){
+      console.log("ngOnChanges",this.latitud, this.longitud, changes);
+      this.setCenter(this.latitud, this.longitud);
+      this.colocarChincheta(this.latitud,this.longitud);
+    }
+
   }
 
   setCenter(latitud: number, longitud: number) {
+    console.log("setCenter", latitud, longitud)
     var view = this.map.getView();
     view.setCenter(ol.proj.fromLonLat([longitud, latitud]));
-    view.setZoom(15);
+    //view.setZoom(15);
   }
 
-  colocarChincheta(latitud: number, longitud: number) {
-    var markers = new ol.layer.Vector({
+  setZoom(zoom: number){
+    var view = this.map.getView();
+    view.setZoom(zoom);
+  }
+
+  iniciarMarkers(){
+    this.markers = new ol.layer.Vector({
       source: new ol.source.Vector(),
       style: new ol.style.Style({
         image: new ol.style.Icon({
@@ -47,10 +67,21 @@ export class MapaComponent implements OnInit {
         })
       })
     });
-    this.map.addLayer(markers);
-
-    var marker = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([longitud, latitud])));
-    markers.getSource().addFeature(marker);
+    this.map.addLayer(this.markers);
   }
+
+  colocarChincheta(latitud: number, longitud: number) {
+    console.log("colocarChincheta", latitud,longitud);
+    var marker = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([longitud, latitud])));
+    this.markers.getSource().clear();
+    this.markers.getSource().addFeature(marker);
+  }
+
+  colocarChinchetas(latitud: number, longitud: number) {
+    console.log("colocarChinchetas", latitud,longitud)
+    var marker = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([longitud, latitud])));
+    this.markers.getSource().addFeature(marker);
+  }
+
 
 }
