@@ -16,8 +16,6 @@ export class GasolinerasComponent implements OnInit {
     private gasolinerasService: GasolinerasService) { }
 
   ngOnInit(): void {
-    this.getGasolinerasByLocalidad("Nerja");
-    this.getGasolinerasByProvincia("Málaga");
   }
 
   getGasolinerasByLocalidad(localidad: string){
@@ -25,8 +23,8 @@ export class GasolinerasComponent implements OnInit {
     .subscribe(data => 
       {
         this.feature = data;
-        this.latitudGasolinera = this.feature.attributes.latitud;
-        this.longitudGasolinera = this.feature.attributes.longitud;
+        this.latitudGasolinera = this.feature.geometry.y;
+        this.longitudGasolinera = this.feature.geometry.x;
         console.log(this.latitudGasolinera);
         console.log(this.longitudGasolinera);
       });
@@ -36,10 +34,11 @@ export class GasolinerasComponent implements OnInit {
     this.gasolinerasService.getGasolinerasByProvincia(provincia)
     .subscribe(data => 
       {
-        // this.gasolinera = Convert.toGasolinera(data);
-        // console.log(this.gasolinera);
-        // this.latitudGasolinera = this.gasolinera.attributes.Latitud;
-        // this.longitudGasolinera = this.gasolinera.attributes.Longitud;
+        this.feature = data;
+        this.latitudGasolinera = this.feature.geometry.y;
+        this.longitudGasolinera = this.feature.geometry.x;
+        console.log(this.latitudGasolinera);
+        console.log(this.longitudGasolinera);
       });
   }
 
