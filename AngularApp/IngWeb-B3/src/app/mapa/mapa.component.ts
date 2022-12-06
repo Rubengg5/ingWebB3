@@ -32,7 +32,7 @@ export class MapaComponent implements OnInit {
     this.iniciarMarkers();
     this.setCenter(this.latitud, this.longitud);
     this.colocarChincheta(this.latitud,this.longitud);
-    this.setZoom(12);
+    this.setZoom(16);
     this.iniciado = true
   }
 
@@ -41,7 +41,7 @@ export class MapaComponent implements OnInit {
       console.log("ngOnChanges",this.latitud, this.longitud, changes);
       this.setCenter(this.latitud, this.longitud);
       this.colocarChincheta(this.latitud,this.longitud);
-      this.setZoom(14);
+      this.setZoom(15);
     }
 
   }
