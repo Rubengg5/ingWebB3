@@ -9,6 +9,7 @@ export const environment = {
   cloudinaryURL: "https://res.cloudinary.com/dee6pfpam/image/upload/v1669835212/",
   cloudinaryCloudName: "dee6pfpam",
   cloudinaryApiKey : "714814147251835",
+  cloudinaryApiSecret : "TtqMOLwi2GqyhU-uszWCZPvu6IY",
   geocodingBaseUrl : "https://eu1.locationiq.com/v1/search?key=",
   geocodingToken : "pk.2cd804ffd67b9615096d4c3069990a53"
 };
