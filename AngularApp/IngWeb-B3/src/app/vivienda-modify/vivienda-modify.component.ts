@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GeocodingService } from '../services/geocoding.service';
 import { ViviendaService } from '../services/vivienda.service';
 
 @Component({
@@ -10,9 +11,12 @@ import { ViviendaService } from '../services/vivienda.service';
 export class ViviendaModifyComponent implements OnInit {
 
   vivienda: any = null;
+  calle : string ;
+  lat : number;
+  lon : number;
 
   constructor(private viviendasService: ViviendaService, private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router, private geocodingService: GeocodingService) { }
 
   ngOnInit(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
@@ -20,6 +24,8 @@ export class ViviendaModifyComponent implements OnInit {
     .subscribe(data =>
       {
         this.vivienda = data;
+        this.lat = this.vivienda.ubicacion.lat;
+        this.lon = this.vivienda.ubicacion.lon;
       });
   }
 
@@ -40,5 +46,15 @@ export class ViviendaModifyComponent implements OnInit {
       });
     this.router.navigate(['/viviendas', this.vivienda.propietario])
   }
+
+  actualizarMapa(){
+    console.log("Actualizar mapa", this.vivienda.calle)
+    this.geocodingService.getCoordenadasFromCalle(this.vivienda.calle).subscribe(data => 
+    {
+      this.lat= data.lat;
+      this.lon= data.lon;
+      this.vivienda.ubicacion = data
+    })
+    }
 
 }

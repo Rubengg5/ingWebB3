@@ -24,7 +24,7 @@
         <div class="row align-items-md-stretch">
             <div class="form-group col-md-6">
                 <label for="inputUbicacion">Calle</label>
-                <input type="text" class="form-control" (change)="actualizarMapa()" [(ngModel)]="calle" [ngModelOptions]="{standalone: true}" id="inputUbicacion">
+                <input type="text" [(ngModel)]="newVivienda.calle" class="form-control" (change)="actualizarMapa()" [(ngModel)]="calle" [ngModelOptions]="{standalone: true}" id="inputUbicacion">
             </div>
             <div class="form-group col-md-4">
             <label for="inputCompleta">Tipo</label>

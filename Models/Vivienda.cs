@@ -21,7 +21,10 @@ namespace WebAPI.Models
         public string Provincia { get; set; }
         public Ubicacion Ubicacion { get; set; }
         public string Tipo { get; set; }
+
+        public string Calle { get; set; }
         public bool ViviendaCompleta { get; set; }
+
 
     }
 }

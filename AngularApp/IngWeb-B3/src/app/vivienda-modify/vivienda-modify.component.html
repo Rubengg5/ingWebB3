@@ -23,8 +23,8 @@
         </div>
         <div class="row align-items-md-stretch">
             <div class="form-group col-md-6">
-            <label for="inputUbicacion">Ubicación</label>
-            <input type="text" class="form-control" id="inputUbicacion">
+                <label for="inputUbicacion">Calle</label>
+                <input type="text" [(ngModel)]="vivienda.calle" class="form-control" (change)="actualizarMapa()" [ngModelOptions]="{standalone: true}" id="inputUbicacion">
             </div>
             <div class="form-group col-md-4">
             <label for="inputCompleta">Tipo</label>
@@ -36,8 +36,8 @@
             </div>
         </div>
         <br>
-        <!-- <div><app-mapa [latitud]="lat" [longitud]="lon"></app-mapa></div> -->
-        <!-- <br> -->
+        <div><app-mapa [latitud]="lat" [longitud]="lon"></app-mapa></div> 
+        <br> 
         <div class="row align-items-md-stretch">
             <div class="form-group col-md-2">    
                 <div class="form-check">
@@ -50,6 +50,7 @@
         </div>
         <br>
         <button type="submit" class="btn btn-warning">Guardar cambios</button>
+        <button style="margin: 15px" (click)="deleteVivienda()" type="submit" class="btn btn-danger">Eliminar</button>
         </form>
 </div>
 

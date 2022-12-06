@@ -10,5 +10,6 @@ export interface Vivienda{
     provincia: string;
     ubicacion: Ubicacion;
     tipo: string;
+    calle: string;
     viviendaCompleta: boolean;
 }

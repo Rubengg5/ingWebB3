@@ -33,6 +33,7 @@ export class ViviendaCreateComponent implements OnInit {
     provincia: "",
     ubicacion: this.ubicacion,
     tipo: "",
+    calle: "",
     viviendaCompleta: true
   }
 
