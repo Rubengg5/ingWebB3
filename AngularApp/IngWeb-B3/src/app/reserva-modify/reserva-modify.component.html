@@ -1,8 +1,9 @@
 <app-header></app-header>
 
-<div class="container-xxl bd-gutter" style="margin-top: 2%;">
+<div class="container-xxl bd-gutter p-5 mb-4 bg-light rounded-3">
+    <h1 class="display-5 fw-bold">Editar reserva</h1>
     <form (ngSubmit)="modifyReserva()" #forma="ngForm">
-        <div class="form-row">
+        <div class="row align-items-md-stretch">
             <div class="form-group col-md-6">
             <label for="inputNombre">Fecha de entrada</label>
             <input type="date" [(ngModel)]="reserva.fechaEntrada" class="form-control" id="inputNombre" placeholder="Nombre" name="fechaEntrada" required>
@@ -16,10 +17,11 @@
             <label for="inputLocalidad">Nº de personas</label>
             <input type="number" [(ngModel)]="reserva.nPersonas" class="form-control" id="inputLocalidad" required placeholder="Localidad" name="localidad">
         </div>
-        <br>
-        <button style="margin: 15px" type="submit" class="btn btn-warning">Guardar cambios</button> 
-        <button (click)="deleteReserva()" type="submit" class="btn btn-warning">Eliminar</button>
-        </form>
+        <div class="form-group">
+            <button type="submit" class="btn btn-warning">Guardar cambios</button> 
+            <button style="margin: 15px" (click)="deleteReserva()" type="submit" class="btn btn-danger">Eliminar</button>
+        </div>
+    </form>
 </div>
 
 <app-footer></app-footer>
