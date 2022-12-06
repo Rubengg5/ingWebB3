@@ -8,8 +8,8 @@ declare var ol: any;
 })
 
 export class MapaComponent implements OnInit {
-  @Input() latitud = -1;
-  @Input() longitud = -1;
+  @Input() latitud = 40.4165000;
+  @Input() longitud = -3.7025600;
   map: any;
   iniciado: boolean;
   markers : any;
@@ -32,6 +32,7 @@ export class MapaComponent implements OnInit {
     this.iniciarMarkers();
     this.setCenter(this.latitud, this.longitud);
     this.colocarChincheta(this.latitud,this.longitud);
+    this.setZoom(12);
     this.iniciado = true
   }
 
@@ -40,6 +41,7 @@ export class MapaComponent implements OnInit {
       console.log("ngOnChanges",this.latitud, this.longitud, changes);
       this.setCenter(this.latitud, this.longitud);
       this.colocarChincheta(this.latitud,this.longitud);
+      this.setZoom(14);
     }
 
   }
