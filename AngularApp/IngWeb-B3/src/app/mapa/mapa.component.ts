@@ -8,8 +8,8 @@ declare var ol: any;
 })
 
 export class MapaComponent implements OnInit {
-  @Input() latitud = -1;
-  @Input() longitud = -1;
+  @Input() latitud = 40.4165000;
+  @Input() longitud = -3.7025600;
   map: any;
   iniciado: boolean;
   markers : any;

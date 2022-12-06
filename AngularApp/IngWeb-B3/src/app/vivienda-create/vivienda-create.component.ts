@@ -18,8 +18,8 @@ export class ViviendaCreateComponent implements OnInit {
     lat: 0,
     lon: 0
   }
-  lat : number = 38;
-  lon : number = -4;
+  lat : number = 40.4165000;
+  lon : number = -3.7025600;
   calle : string ;
   prueba : any;
 
