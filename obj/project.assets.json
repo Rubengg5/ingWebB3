@@ -6224,7 +6224,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
-        "https://pkgs.dev.azure.com/neo-azure-local/_packaging/emea-napea/nuget/v3/index.json": {}
+        "https://pkgs.dev.azure.com/neo-azure-emea/_packaging/emea-napea/nuget/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
