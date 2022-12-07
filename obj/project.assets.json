@@ -6203,19 +6203,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\r.gonzalez.garcia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\ingWebB3\\B3serverREST.csproj",
+      "projectUniqueName": "C:\\Users\\r.gonzalez.garcia\\OneDrive - Avanade\\Documents\\Personal\\ingWebB3\\B3serverREST.csproj",
       "projectName": "B3serverREST",
-      "projectPath": "C:\\Users\\Usuario\\source\\repos\\ingWebB3\\B3serverREST.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\source\\repos\\ingWebB3\\obj\\",
+      "projectPath": "C:\\Users\\r.gonzalez.garcia\\OneDrive - Avanade\\Documents\\Personal\\ingWebB3\\B3serverREST.csproj",
+      "packagesPath": "C:\\Users\\r.gonzalez.garcia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\r.gonzalez.garcia\\OneDrive - Avanade\\Documents\\Personal\\ingWebB3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\r.gonzalez.garcia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6223,7 +6223,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/neo-azure-local/_packaging/emea-napea/nuget/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -6296,7 +6297,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -6305,7 +6306,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"Microsoft.AspNet.WebApi.Client.es 5.2.9\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \"net6.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Client.es 5.2.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Client.es",
       "targetGraphs": [
         "net6.0"
