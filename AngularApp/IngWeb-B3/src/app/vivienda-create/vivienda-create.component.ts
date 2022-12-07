@@ -102,7 +102,7 @@ export class ViviendaCreateComponent implements OnInit {
         console.log(payload)
         axios.post(environment.cloudinaryApiUrl, payload).then((response) => {
           console.log(response.data);
-          nombreArchivo = response.data["public_id"]
+          nombreArchivo = response.data["url"]
           this.newVivienda.imagen=nombreArchivo
       }).catch((error) => {
           console.error(error);
