@@ -6,6 +6,9 @@ import {v4 as uuidv4} from 'uuid';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MapaComponent } from '../mapa/mapa.component';
 import { GeocodingService } from '../services/geocoding.service';
+import axios from "axios";
+import { strict } from 'assert';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-vivienda-create',
@@ -22,6 +25,7 @@ export class ViviendaCreateComponent implements OnInit {
   lon : number = -3.7025600;
   calle : string ;
   prueba : any;
+  datos : unknown = "-1";
 
   newVivienda: Vivienda = {
     id: "",
@@ -47,6 +51,10 @@ export class ViviendaCreateComponent implements OnInit {
 
   createVivienda(){
     this.newVivienda.id = uuidv4();
+    //Si se ha cargado una imagen desde el pc del cliente entonces la subimos a Cloudinary y se guarda en newVivienda su nueva ruta relativa
+    if(this.datos !== "-1"){
+      //this.mandarAPI(this.datos)
+    }
     this.viviendasService.createVivivenda(this.newVivienda).subscribe(data => 
     {
         this.responseOK = data !== null;
@@ -65,4 +73,39 @@ export class ViviendaCreateComponent implements OnInit {
       this.newVivienda.ubicacion = data
     })
     }
+
+    async capturarFile($event: Event) {
+      const target = $event.target as HTMLInputElement
+      if (target.files !== null){
+        let file = (target.files[0]);
+        this.datos = await this.encodeImageFileAsURL(file)
+        this.mandarAPI(this.datos)
+      }
+      }
+
+    encodeImageFileAsURL(element: File | null) {
+      return new Promise(resolve=>{
+      if (element !== null) {
+        var file = element
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          resolve(reader.result)
+      }
+      reader.readAsDataURL(file);
+      }
+    })
+    }
+
+    mandarAPI(data: unknown){
+        var nombreArchivo=""
+        const payload = { "file" : data , "api_key": "714814147251835", "upload_preset": "ontg4fqa" };
+        console.log(payload)
+        axios.post(environment.cloudinaryApiUrl, payload).then((response) => {
+          console.log(response.data);
+          nombreArchivo = response.data["url"]
+          this.newVivienda.imagen=nombreArchivo
+      }).catch((error) => {
+          console.error(error);
+      });
+      }
   }
