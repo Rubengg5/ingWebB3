@@ -6,6 +6,9 @@ import {v4 as uuidv4} from 'uuid';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MapaComponent } from '../mapa/mapa.component';
 import { GeocodingService } from '../services/geocoding.service';
+import axios from "axios";
+import { strict } from 'assert';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-vivienda-create',
@@ -22,6 +25,7 @@ export class ViviendaCreateComponent implements OnInit {
   lon : number = -3.7025600;
   calle : string ;
   prueba : any;
+  datos : string ;
 
   newVivienda: Vivienda = {
     id: "",
@@ -65,4 +69,39 @@ export class ViviendaCreateComponent implements OnInit {
       this.newVivienda.ubicacion = data
     })
     }
+
+    async capturarFile($event: Event) {
+      const target = $event.target as HTMLInputElement
+      var datosURI : string;
+      if (target.files !== null){
+        let file = (target.files[0]);
+        console.log("Hola", file)
+        const d = await this.encodeImageFileAsURL(file)
+        console.log("res", d)
+        this.mandarAPI(d)
+      }
+      }
+
+    encodeImageFileAsURL(element: File | null) {
+      return new Promise(resolve=>{
+      if (element !== null) {
+        var file = element
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          resolve(reader.result)
+      }
+      reader.readAsDataURL(file);
+      }
+    })
+    }
+
+    mandarAPI(data: unknown){
+        const payload = { "file" : data , "api_key": "714814147251835", "upload_preset": "ontg4fqa" };
+        console.log(payload)
+        axios.post(environment.cloudinaryApiUrl, payload).then((response) => {
+          console.log(response.data);
+      }).catch((error) => {
+          console.error(error);
+      });
+      }
   }
