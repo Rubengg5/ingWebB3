@@ -25,7 +25,7 @@ export class ViviendaCreateComponent implements OnInit {
   lon : number = -3.7025600;
   calle : string ;
   prueba : any;
-  datos : string ;
+  datos : unknown = "-1";
 
   newVivienda: Vivienda = {
     id: "",
@@ -51,6 +51,10 @@ export class ViviendaCreateComponent implements OnInit {
 
   createVivienda(){
     this.newVivienda.id = uuidv4();
+    //Si se ha cargado una imagen desde el pc del cliente entonces la subimos a Cloudinary y se guarda en newVivienda su nueva ruta relativa
+    if(this.datos !== "-1"){
+      //this.mandarAPI(this.datos)
+    }
     this.viviendasService.createVivivenda(this.newVivienda).subscribe(data => 
     {
         this.responseOK = data !== null;
@@ -72,13 +76,10 @@ export class ViviendaCreateComponent implements OnInit {
 
     async capturarFile($event: Event) {
       const target = $event.target as HTMLInputElement
-      var datosURI : string;
       if (target.files !== null){
         let file = (target.files[0]);
-        console.log("Hola", file)
-        const d = await this.encodeImageFileAsURL(file)
-        console.log("res", d)
-        this.mandarAPI(d)
+        this.datos = await this.encodeImageFileAsURL(file)
+        this.mandarAPI(this.datos)
       }
       }
 
@@ -96,10 +97,13 @@ export class ViviendaCreateComponent implements OnInit {
     }
 
     mandarAPI(data: unknown){
+        var nombreArchivo=""
         const payload = { "file" : data , "api_key": "714814147251835", "upload_preset": "ontg4fqa" };
         console.log(payload)
         axios.post(environment.cloudinaryApiUrl, payload).then((response) => {
           console.log(response.data);
+          nombreArchivo = response.data["public_id"]
+          this.newVivienda.imagen=nombreArchivo
       }).catch((error) => {
           console.error(error);
       });
