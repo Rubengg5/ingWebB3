@@ -42,8 +42,8 @@
       </div>
 
       <br><br>
-      <div class="overflow-hidden" style="max-height: 40vh;">
-        <div class="row-home-images container px-5">
+      <div class="overflow-hidden" >
+        <div class="row-home-images container px-5" >
           <div *ngFor="let vivienda of viviendaList" class="col-md-6">
             <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url({{vivienda.imagen}});" [routerLink]="['/vivienda', vivienda.id]">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
