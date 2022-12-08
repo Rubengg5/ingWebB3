@@ -42,7 +42,7 @@
       </div>
 
       <br><br>
-      <div class="overflow-hidden" >
+      <div class="overflow-hidden">
         <div class="row-home-images container px-5" >
           <div *ngFor="let vivienda of viviendaList" class="col-md-6">
             <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url({{vivienda.imagen}});" [routerLink]="['/vivienda', vivienda.id]">

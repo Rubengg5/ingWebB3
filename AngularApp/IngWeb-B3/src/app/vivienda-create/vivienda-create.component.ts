@@ -15,6 +15,8 @@ import { environment } from '../../environments/environment';
   templateUrl: './vivienda-create.component.html',
   styleUrls: ['./vivienda-create.component.css']
 })
+
+
 export class ViviendaCreateComponent implements OnInit {
 
   ubicacion: Ubicacion = {
@@ -26,6 +28,11 @@ export class ViviendaCreateComponent implements OnInit {
   calle : string ;
   prueba : any;
   datos : unknown = "-1";
+  lista = ['Alava','Albacete','Alicante','Almería','Asturias','Avila','Badajoz','Barcelona','Burgos','Cáceres',
+  'Cádiz','Cantabria','Castellón','Ciudad Real','Córdoba','La Coruña','Cuenca','Gerona','Granada','Guadalajara',
+  'Guipúzcoa','Huelva','Huesca','Islas Baleares','Jaén','León','Lérida','Lugo','Madrid','Málaga','Murcia','Navarra',
+  'Orense','Palencia','Las Palmas','Pontevedra','La Rioja','Salamanca','Segovia','Sevilla','Soria','Tarragona',
+  'Santa Cruz de Tenerife','Teruel','Toledo','Valencia','Valladolid','Vizcaya','Zamora','Zaragoza'];
 
   newVivienda: Vivienda = {
     id: "",
@@ -57,12 +64,14 @@ export class ViviendaCreateComponent implements OnInit {
     }
     this.viviendasService.createVivivenda(this.newVivienda).subscribe(data => 
     {
-        this.responseOK = data !== null;
+        this.responseOK = (data !== null);
+        console.log(this.responseOK)
+        if(this.responseOK){
+          this.router.navigate(['/vivienda', this.newVivienda.id])
+        }
     });
 
-    if(this.responseOK){
-      this.router.navigate(['/vivienda', this.newVivienda.id])
-    }
+
   }
   actualizarMapa(){
     console.log("Actualizar mapa", this.calle)
