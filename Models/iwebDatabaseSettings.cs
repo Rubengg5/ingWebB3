@@ -11,4 +11,6 @@ public class iwebDatabaseSettings
     public string ReservasCollectionName { get; set; } = null!;
 
     public string UsuariosCollectionName { get; set; } = null!;
+
+    public string ValoracionesCollectionName { get; set; } = null!;
 }
