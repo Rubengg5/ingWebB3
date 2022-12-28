@@ -28,6 +28,7 @@ import { ReservaModifyComponent } from './reserva-modify/reserva-modify.componen
 import { ViviendaModifyComponent } from './vivienda-modify/vivienda-modify.component';
 import { ReservasViviendaComponent } from './reservas-vivienda/reservas-vivienda.component';
 import { GasolinerasComponent } from './gasolineras/gasolineras.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { GasolinerasComponent } from './gasolineras/gasolineras.component';
     ReservaModifyComponent,
     ViviendaModifyComponent,
     ReservasViviendaComponent,
-    GasolinerasComponent
+    GasolinerasComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

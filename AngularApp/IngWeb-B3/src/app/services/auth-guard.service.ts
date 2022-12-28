@@ -17,6 +17,7 @@ export class AuthGuardService {
   
     public signOutExternal = () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("id");
         console.log("token deleted")
     }
   

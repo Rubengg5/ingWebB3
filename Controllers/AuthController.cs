@@ -71,7 +71,7 @@ namespace WebAPI.Controllers
                      SameSite = SameSiteMode.None
                  });
 
-            return new { token = encrypterToken, username = user.UserName };
+            return new { token = encrypterToken, id = user.Id };
         }
 
 
