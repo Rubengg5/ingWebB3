@@ -21,7 +21,7 @@ export class ViviendasComponent implements OnInit {
 
     const id = String(this.route.snapshot.paramMap.get('id'));
 
-    this.viviendasService.getViviendaByPropietario(id)
+    this.viviendasService.getViviendas()
     .subscribe(data => 
       {
         this.viviendaList = data;

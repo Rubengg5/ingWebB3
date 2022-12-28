@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'reserva/:id', component: ReservaDetailsComponent },
   { path: 'vivienda/:id', component: ViviendaDetailsComponent },
   {path: 'login', component: LoginComponent},
-  {path: 'viviendas/:id', component: ViviendasComponent},
+  {path: 'viviendas', component: ViviendasComponent},
   {path: 'reservas/:id', component: ReservasComponent},
   {path: 'newVivienda', component: ViviendaCreateComponent},
   {path: 'newReserva/:id', component: ReservaCreateComponent},
