@@ -54,6 +54,7 @@ import { MensajesComponent } from './mensajes/mensajes.component';
     ReservasViviendaComponent,
     GasolinerasComponent,
     ValoracionesComponent,
+    LogoutComponent,
     MensajesComponent
   ],
   imports: [

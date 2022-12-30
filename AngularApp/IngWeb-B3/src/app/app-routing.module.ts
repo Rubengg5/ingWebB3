@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { GasolinerasComponent } from './gasolineras/gasolineras.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { MensajesComponent } from './mensajes/mensajes.component';
 import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'reserva/:id', component: ReservaDetailsComponent },
   { path: 'vivienda/:id', component: ViviendaDetailsComponent },
   {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: 'viviendas', component: ViviendasComponent},
   {path: 'reservas/:id', component: ReservasComponent},
   {path: 'newVivienda', component: ViviendaCreateComponent},

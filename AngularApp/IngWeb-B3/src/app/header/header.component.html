@@ -18,8 +18,14 @@
       </form>
 
       <div class="text-end">
-        <button type="button" class="btn btn-outline-light me-2">Iniciar Sesión</button>
-        <button type="button" class="btn btn-warning">Registrarse</button>
+        <div *ngIf="!isLoggedIn"> 
+          <button type="button" class="btn btn-outline-light me-2" [routerLink]="['/login']">Iniciar Sesión</button>
+        </div>
+        <div *ngIf="isLoggedIn"> 
+          <div><p>Bienvenido, {{user.email}}</p></div>
+          <div>
+          <button type="button" class="btn btn-outline-light me-2" [routerLink]="['/logout']">Cerrar Sesión</button></div>
+        </div>
       </div>
     </div>
   </div>

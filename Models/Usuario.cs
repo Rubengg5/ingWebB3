@@ -12,6 +12,8 @@ namespace WebAPI.Models
         [Required]
         public string Role { get; set; }
         [Required]
+        public string Email { get; set; }
+        [Required]
         public string BirthDay { get; set; }
         [Required]
         public int PasswordSalt { get; set; }

@@ -42,10 +42,10 @@ export class LoginComponent implements OnInit{
     }
 
     async handleCredentialResponse(response: CredentialResponse) {
-      debugger;
+      //debugger;
       await this.service.LoginWithGoogle(response.credential).subscribe(
         (x:any) => {
-          debugger;
+          //debugger;
           localStorage.setItem("token", x.token);
           localStorage.setItem("id", x.id)
           this._ngZone.run(() => {
@@ -56,6 +56,8 @@ export class LoginComponent implements OnInit{
           }
         );  
   }
-
+actualizar(){
+  window.location.reload()
+}
   
 }

@@ -29,6 +29,8 @@ namespace WebAPI.Services
 
         public async Task<Usuario?> GetUsuarioByNombre(string nombre) =>
         await usuariosCollection.Find(x => x.UserName == nombre).FirstOrDefaultAsync();
+        public async Task<Usuario?> GetUsuarioByEmail(string email) =>
+        await usuariosCollection.Find(x => x.Email == email).FirstOrDefaultAsync();
 
         public async Task CreateUsuario(Usuario usuario) =>
             await usuariosCollection.InsertOneAsync(usuario);

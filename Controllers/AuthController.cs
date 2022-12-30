@@ -85,15 +85,24 @@ namespace WebAPI.Controllers
 
 
             var payload = await GoogleJsonWebSignature.ValidateAsync(credential);
-            var user = _usuariosService.GetUsuarioByNombre(payload.Name);
+            var user = _usuariosService.GetUsuarioByEmail(payload.Email).Result;
+            Console.WriteLine(payload.Email);
 
             if (user != null)
             {
-                return Ok(JWTGenerator(user.Result));
+                Console.WriteLine("Inicia sesion", user.Email);
+                return Ok(JWTGenerator(user));
             }
             else
             {
-                return BadRequest();
+                Usuario userNuevo = new Usuario();
+                userNuevo.UserName = payload.Name;
+                userNuevo.Email = payload.Email;
+                userNuevo.BirthDay = "-1";
+                userNuevo.Role = "user";
+                _ = _usuariosService.CreateUsuario(userNuevo);
+                Console.WriteLine("Registro", userNuevo);
+                return Ok(JWTGenerator(userNuevo));
             }
         }
 
