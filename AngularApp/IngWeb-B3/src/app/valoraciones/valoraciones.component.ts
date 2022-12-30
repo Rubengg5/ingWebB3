@@ -47,7 +47,7 @@ export class ValoracionesComponent implements OnInit {
     this.usuariosService
       .getUsuarioById(autor)
       .subscribe((data) => {
-        this.nombreUsuario = data.nombre;
+        this.nombreUsuario = data.userName;
         console.log(this.nombreUsuario);
       });
       return this.nombreUsuario;

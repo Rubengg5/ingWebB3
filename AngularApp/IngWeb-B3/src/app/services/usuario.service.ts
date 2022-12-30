@@ -19,7 +19,7 @@ export class UsuarioService {
         return this.http.post(environment.baseURL+"/api/Usuarios", usuario);
       }
     
-      getUsuarioById(id: string){
+      getUsuarioById(id?: string){
         return this.http.get<Usuario>(environment.baseURL+"/api/Usuarios/"+id);
       }
     

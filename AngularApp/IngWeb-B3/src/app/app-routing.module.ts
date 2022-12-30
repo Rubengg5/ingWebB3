@@ -5,6 +5,7 @@ import { GasolinerasComponent } from './gasolineras/gasolineras.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { MapaComponent } from './mapa/mapa.component';
+import { MensajesComponent } from './mensajes/mensajes.component';
 import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
 import { ReservaDetailsComponent } from './reserva-details/reserva-details.component';
 import { ReservaModifyComponent } from './reserva-modify/reserva-modify.component';
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path: 'modifyReserva/:id', component: ReservaModifyComponent},
   {path: 'modifyVivienda/:id', component: ViviendaModifyComponent},
   {path: 'reservasVivienda/:id', component: ReservasViviendaComponent},
-  {path: 'gasolineras', component: GasolinerasComponent}
+  {path: 'gasolineras', component: GasolinerasComponent},
+  {path: 'chat/:id', component: MensajesComponent}
 ];
 
 @NgModule({

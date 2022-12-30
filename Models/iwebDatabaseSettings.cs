@@ -13,4 +13,6 @@ public class iwebDatabaseSettings
     public string UsuariosCollectionName { get; set; } = null!;
 
     public string ValoracionesCollectionName { get; set; } = null!;
+
+    public string MensajesCollectionName { get; set; } = null!;
 }

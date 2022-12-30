@@ -30,6 +30,7 @@ import { ReservasViviendaComponent } from './reservas-vivienda/reservas-vivienda
 import { GasolinerasComponent } from './gasolineras/gasolineras.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ValoracionesComponent } from './valoraciones/valoraciones.component';
+import { MensajesComponent } from './mensajes/mensajes.component';
 
 
 @NgModule({
@@ -51,7 +52,9 @@ import { ValoracionesComponent } from './valoraciones/valoraciones.component';
     ReservaModifyComponent,
     ViviendaModifyComponent,
     ReservasViviendaComponent,
-    GasolinerasComponent
+    GasolinerasComponent,
+    ValoracionesComponent,
+    MensajesComponent
   ],
   imports: [
     BrowserModule,
