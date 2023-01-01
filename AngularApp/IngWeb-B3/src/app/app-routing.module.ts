@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { MensajesComponent } from './mensajes/mensajes.component';
+import { PaypalComponent } from './paypal/paypal.component';
 import { ReservaCreateComponent } from './reserva-create/reserva-create.component';
 import { ReservaDetailsComponent } from './reserva-details/reserva-details.component';
 import { ReservaModifyComponent } from './reserva-modify/reserva-modify.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: 'modifyVivienda/:id', component: ViviendaModifyComponent},
   {path: 'reservasVivienda/:id', component: ReservasViviendaComponent},
   {path: 'gasolineras', component: GasolinerasComponent},
+  {path: "paypal", component: PaypalComponent},
   {path: 'chat/:id', component: MensajesComponent}
 ];
 

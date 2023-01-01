@@ -31,7 +31,8 @@ import { GasolinerasComponent } from './gasolineras/gasolineras.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ValoracionesComponent } from './valoraciones/valoraciones.component';
 import { MensajesComponent } from './mensajes/mensajes.component';
-
+import { NgxPayPalModule } from 'ngx-paypal';
+import { PaypalComponent } from './paypal/paypal.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { MensajesComponent } from './mensajes/mensajes.component';
     GasolinerasComponent,
     ValoracionesComponent,
     LogoutComponent,
+    PaypalComponent,
     MensajesComponent
   ],
   imports: [
@@ -68,6 +70,7 @@ import { MensajesComponent } from './mensajes/mensajes.component';
     MatInputModule,
     MatCardModule,
     ReactiveFormsModule,
+    NgxPayPalModule,
     FormsModule
   ],
   providers: [{
