@@ -46,7 +46,8 @@ export class ViviendaCreateComponent implements OnInit {
     tipo: "",
     calle: "",
     viviendaCompleta: true,
-    precioNoche: -1
+    precioNoche: -1,
+    maxOcupantes:-1
   }
 
   responseOK: boolean = false;

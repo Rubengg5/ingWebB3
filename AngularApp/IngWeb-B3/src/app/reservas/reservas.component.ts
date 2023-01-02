@@ -24,6 +24,7 @@ export class ReservasComponent implements OnInit {
       {
         this.reservaList = data;
       });
+      
   }
 
   searchByDate(fechaEntrada: string, fechaSalida: string){

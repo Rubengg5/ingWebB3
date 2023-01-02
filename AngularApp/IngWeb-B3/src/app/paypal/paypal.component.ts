@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ICreateOrderRequest } from "ngx-paypal";
 import { environment } from 'src/environments/environment';
 import { Output, EventEmitter } from '@angular/core';
@@ -12,7 +12,9 @@ import { Output, EventEmitter } from '@angular/core';
 
 
 export class PaypalComponent implements OnInit {
+  @Input() precio = -1;
   @Output() status = new EventEmitter<string>();
+  @Output() recibo = new EventEmitter<any>();
   public payPalConfig: any;
   public showPaypalButtons: boolean;
 
@@ -31,22 +33,22 @@ export class PaypalComponent implements OnInit {
             {
               amount: {
                 currency_code: "EUR",
-                value: "9.99",
+                value: this.precio.toString(),
                 breakdown: {
                   item_total: {
                     currency_code: "EUR",
-                    value: "9.99"
+                    value: this.precio.toString()
                   }
                 }
               },
               items: [
                 {
-                  name: "Enterprise Subscription",
+                  name: "Reserva de hospedaje",
                   quantity: "1",
                   category: "DIGITAL_GOODS",
                   unit_amount: {
                     currency_code: "EUR",
-                    value: "9.99"
+                    value: this.precio.toString()
                   }
                 }
               ]
@@ -71,7 +73,7 @@ export class PaypalComponent implements OnInit {
             "onApprove - you can get full order details inside onApprove: ",
             details
           );
-          this.status.emit("APPR");
+          this.status.emit("Aprobado");
         });
       },
       onClientAuthorization:(data : any)=> {
@@ -79,16 +81,17 @@ export class PaypalComponent implements OnInit {
           "onClientAuthorization - you should probably inform your server about completed transaction at this point",
           data
         );
-        this.status.emit("AUTH");
+        this.status.emit("Autorizado");
+        this.recibo.emit(data);
         console.log("Gracias", data.payer.name.given_name, ", su ID de pago es:", data.id )
       },
       onCancel: (data: any, actions: any) => {
         console.log("OnCancel", data, actions);
-        this.status.emit("CANC");
+        this.status.emit("Cancelado");
       },
       onError: (err: any) => {
         console.log("OnError", err);
-        this.status.emit("ERRO");
+        this.status.emit("Error");
       },
       onClick: (data: any, actions : any) => {
         console.log("onClick", data, actions);

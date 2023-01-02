@@ -27,6 +27,7 @@ namespace WebAPI.Models
 
         public double PrecioNoche { get; set; }
 
+        public int MaxOcupantes { get; set; }
 
     }
 }

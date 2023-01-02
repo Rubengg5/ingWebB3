@@ -13,4 +13,5 @@ export interface Vivienda{
     calle: string;
     viviendaCompleta: boolean;
     precioNoche: number;
+    maxOcupantes:number;
 }
