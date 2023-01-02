@@ -26,6 +26,7 @@ export class ReservaCreateComponent implements OnInit {
     fechaSalida: "",
     nPersonas: 1,
     inquilino: JSON.stringify(localStorage.getItem("id")),
+    //inquilino: "8e5500fc-4c51-4021-a05c-dbc1d8b9d4ff",
     precioTotal: -1
   };
   vivienda : Vivienda;
@@ -70,6 +71,12 @@ export class ReservaCreateComponent implements OnInit {
   }
   createReserva(){
     this.newReserva.id = uuidv4();
+    if(localStorage.getItem("id") != null){
+      var user_id : any = localStorage.getItem("id");
+      this.newReserva.inquilino = user_id;
+    }
+    this.newReserva.precioTotal=this.precio;
+    console.log("Reserva: ", this.newReserva);
     this.reservasService.createReserva(this.newReserva).subscribe(data => {
       console.log(data);
       this.responseOK = data !== null;
@@ -84,7 +91,6 @@ export class ReservaCreateComponent implements OnInit {
   }
   isReservaOK(){
     if(this.newReserva.fechaEntrada=="" || this.newReserva.fechaSalida==""){
-      console.log("error ddma")
       this.error ="Rellene todos los campos de fecha";
       return false;
     }
@@ -100,16 +106,19 @@ export class ReservaCreateComponent implements OnInit {
       this.error ="El número máximo de ocupantes es " + this.vivienda.maxOcupantes;
       return false;
     }
-    var numeroReservas = 0;
-    this.reservasService.getReservaByFechas(this.newReserva.fechaEntrada, this.newReserva.fechaSalida).subscribe( data =>{numeroReservas = data.length})
-    if (numeroReservas > 0){
-      return false;
-    }
+    var numeroReservas;
+    this.reservasService.getReservaByFechas(this.newReserva.fechaEntrada, this.newReserva.fechaSalida).subscribe(data =>{
+      numeroReservas = data
+    })
+    console.log("nReservas", numeroReservas)
+
+    // if (numeroReservas > 0){
+    //   return false;
+    // }
     return true;
   }
   process(date: any){
     var parts = date.split("-");
-    console.log(parts)
     return new Date(parts[0], parts[1] - 1, parts[2]);
  }
 }
