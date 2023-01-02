@@ -18,6 +18,7 @@ export class ReservaCreateComponent implements OnInit {
     fechaSalida: "",
     nPersonas: 1,
     inquilino: JSON.stringify(localStorage.getItem("id")),
+    precioTotal: -1
   }
 
   responseOK: boolean = false;

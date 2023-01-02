@@ -25,6 +25,8 @@ namespace WebAPI.Models
         public string Calle { get; set; }
         public bool ViviendaCompleta { get; set; }
 
+        public double PrecioNoche { get; set; }
+
 
     }
 }

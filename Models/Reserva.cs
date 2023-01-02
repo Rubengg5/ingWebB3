@@ -18,6 +18,7 @@ namespace WebAPI.Models
         public string FechaSalida { get; set; }
         public int NPersonas { get; set; }
         public Guid Inquilino { get; set; }
+        public float PrecioTotal { get; set; }
     }
 
 }

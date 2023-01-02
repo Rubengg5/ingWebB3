@@ -5,4 +5,5 @@ export interface Reserva{
     fechaSalida: string;
     nPersonas: number;
     inquilino: string;
+    precioTotal: number;
 }

@@ -45,7 +45,8 @@ export class ViviendaCreateComponent implements OnInit {
     ubicacion: this.ubicacion,
     tipo: "",
     calle: "",
-    viviendaCompleta: true
+    viviendaCompleta: true,
+    precioNoche: -1
   }
 
   responseOK: boolean = false;

@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ICreateOrderRequest } from "ngx-paypal";
 import { environment } from 'src/environments/environment';
+import { Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-paypal',
   templateUrl: './paypal.component.html',
   styleUrls: ['./paypal.component.css']
 })
+
+
 export class PaypalComponent implements OnInit {
+  @Output() status = new EventEmitter<string>();
   public payPalConfig: any;
   public showPaypalButtons: boolean;
+
   
+
   constructor() { }
 
   ngOnInit(): void {
@@ -64,6 +71,7 @@ export class PaypalComponent implements OnInit {
             "onApprove - you can get full order details inside onApprove: ",
             details
           );
+          this.status.emit("APPR");
         });
       },
       onClientAuthorization:(data : any)=> {
@@ -71,12 +79,16 @@ export class PaypalComponent implements OnInit {
           "onClientAuthorization - you should probably inform your server about completed transaction at this point",
           data
         );
+        this.status.emit("AUTH");
+        console.log("Gracias", data.payer.name.given_name, ", su ID de pago es:", data.id )
       },
       onCancel: (data: any, actions: any) => {
         console.log("OnCancel", data, actions);
+        this.status.emit("CANC");
       },
       onError: (err: any) => {
         console.log("OnError", err);
+        this.status.emit("ERRO");
       },
       onClick: (data: any, actions : any) => {
         console.log("onClick", data, actions);

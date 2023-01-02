@@ -12,4 +12,5 @@ export interface Vivienda{
     tipo: string;
     calle: string;
     viviendaCompleta: boolean;
+    precioNoche: number;
 }
