@@ -6,14 +6,15 @@
       <h4 class="display-5 fw-bold">{{ vivienda.nombre }}</h4>
       <p class="col-md-8 fs-4">{{ vivienda.descripcion }}</p>
       <p>{{ vivienda.localidad }}, {{ vivienda.provincia }}</p>
-      <button
+      <h5>Desde <b>{{vivienda.precioNoche}}€</b> la noche</h5>
+      <button *ngIf="esPropietario"
         class="btn btn-warning btn-lg"
         type="button"
         [routerLink]="['/modifyVivienda', vivienda.id]"
       >
         Editar Vivienda
       </button>
-      <button
+      <button *ngIf="!esPropietario"
         style="margin: 15px"
         class="btn btn-secondary btn-lg"
         type="button"

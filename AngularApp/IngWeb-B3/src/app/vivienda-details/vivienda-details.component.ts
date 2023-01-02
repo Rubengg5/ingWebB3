@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { MapaComponent } from '../mapa/mapa.component';
+import { Usuario } from '../models/usuario';
 import { ReservaService } from '../services/reserva.service';
 import { UsuarioService } from '../services/usuario.service';
 import { ViviendaService } from '../services/vivienda.service';
@@ -21,6 +22,7 @@ export class ViviendaDetailsComponent implements OnInit {
   longitudVivienda: number = 0;
   nPersonas: number = 0;
   puedeReservar: boolean = false;
+  esPropietario: boolean = false;
 
   constructor(private route: ActivatedRoute,
     private usuarioService: UsuarioService,
@@ -33,7 +35,9 @@ export class ViviendaDetailsComponent implements OnInit {
     .subscribe(data => 
       {
         this.vivienda = data;
-        console.log(this.vivienda);
+        console.log(this.vivienda.propietario);
+        console.log("User:",localStorage.getItem("id"));
+        this.esPropietario = this.vivienda.propietario ==localStorage.getItem("id");
         this.latitudVivienda = this.vivienda.ubicacion.lat;
         this.longitudVivienda = this.vivienda.ubicacion.lon;
       });
