@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Console } from 'console';
 import { Usuario } from '../models/usuario';
@@ -14,6 +14,7 @@ import {v4 as uuidv4} from 'uuid';
   styleUrls: ['./valoraciones.component.css'],
 })
 export class ValoracionesComponent implements OnInit {
+  @Input() puedeValorar : boolean = false;
   valoraciones0 : Valoracion[] =[];
   valoraciones: ValoracionView[]=[];
   nombreUsuario: any;

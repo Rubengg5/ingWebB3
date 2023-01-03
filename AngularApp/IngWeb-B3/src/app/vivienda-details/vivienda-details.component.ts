@@ -22,7 +22,9 @@ export class ViviendaDetailsComponent implements OnInit {
   longitudVivienda: number = 0;
   nPersonas: number = 0;
   puedeReservar: boolean = false;
+  puedeValorar: boolean = false;
   esPropietario: boolean = false;
+  haReservado : boolean = false;
   user : Usuario ;
 
   constructor(private route: ActivatedRoute,
@@ -38,7 +40,10 @@ export class ViviendaDetailsComponent implements OnInit {
         this.vivienda = data;
         console.log(this.vivienda.propietario);
         console.log("User:",localStorage.getItem("id"));
-        this.esPropietario = this.vivienda.propietario ==localStorage.getItem("id");
+        this.esPropietario = this.vivienda.propietario == localStorage.getItem("id");
+        this.puedeReservar = !this.esPropietario && localStorage.getItem("id") != null
+        //this.haReservado =
+        this.puedeValorar = !this.esPropietario && localStorage.getItem("id") != null && this.haReservado
         this.latitudVivienda = this.vivienda.ubicacion.lat;
         this.longitudVivienda = this.vivienda.ubicacion.lon;
         this.usuarioService.getUsuarioById(this.vivienda.propietario).subscribe(data => {

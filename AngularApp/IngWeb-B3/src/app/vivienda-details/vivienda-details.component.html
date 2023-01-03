@@ -15,7 +15,7 @@
       >
         Editar Vivienda
       </button>
-      <button *ngIf="!esPropietario"
+      <button *ngIf="puedeReservar"
         style="margin: 15px"
         class="btn btn-secondary btn-lg"
         type="button"
@@ -41,5 +41,5 @@
   </div>
 </div>
 <div *ngIf="!esPropietario">
-<app-valoraciones></app-valoraciones></div>
+<app-valoraciones [puedeValorar]="puedeValorar"></app-valoraciones></div>
 <app-footer></app-footer>
