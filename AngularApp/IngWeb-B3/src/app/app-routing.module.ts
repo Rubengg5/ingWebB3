@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'vivienda/:id', component: ViviendaDetailsComponent },
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},
-  {path: 'viviendas', component: ViviendasComponent},
+  {path: 'viviendas/:id', component: ViviendasComponent},
   {path: 'reservas/:id', component: ReservasComponent},
   {path: 'newVivienda', component: ViviendaCreateComponent},
   {path: 'newReserva/:id', component: ReservaCreateComponent},
