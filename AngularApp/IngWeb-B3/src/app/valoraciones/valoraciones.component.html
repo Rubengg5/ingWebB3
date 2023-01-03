@@ -2,7 +2,7 @@
 <div class="container">
   <div id="reviews">
     <div class="d-flex align-items-center justify-content-between mb-4">
-      <h4 class="m-0">{{ valoraciones.length }} Reviews</h4>
+      <h4 class="m-0">{{this.valoraciones.length}} Reviews</h4>
       <!-- <select class="custom-select custom-select-sm border-0 shadow-sm ml-2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
                 <option data-select2-id="3">Most Relevant</option>
                 <option>Most Recent</option>
@@ -172,7 +172,7 @@
             </div>
             <div class="right">
               <h4>
-                {{ valoracion.autor }}
+                {{valoracion.nombreAutor}}
                 <!-- {{getUsuario(valoracion.autor)}} -->
                 <span class="gig-rating text-body-2">
                   <svg

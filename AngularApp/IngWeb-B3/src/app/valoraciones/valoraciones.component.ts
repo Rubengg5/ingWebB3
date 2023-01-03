@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Console } from 'console';
 import { Usuario } from '../models/usuario';
 import { Valoracion } from '../models/valoracion';
+import { ValoracionView } from '../models/valoracionView';
 import { UsuarioService } from '../services/usuario.service';
 import { ValoracionService } from '../services/valoracion.service';
 import {v4 as uuidv4} from 'uuid';
@@ -13,7 +14,8 @@ import {v4 as uuidv4} from 'uuid';
   styleUrls: ['./valoraciones.component.css'],
 })
 export class ValoracionesComponent implements OnInit {
-  valoraciones: any;
+  valoraciones0 : Valoracion[] =[];
+  valoraciones: ValoracionView[]=[];
   nombreUsuario: any;
   responseOK: boolean;
   idVivienda: any;
@@ -37,20 +39,34 @@ export class ValoracionesComponent implements OnInit {
   ngOnInit(): void {
     this.responseOK = false;
     this.idVivienda = String(this.route.snapshot.paramMap.get('id'));
-    this.valoracionesService.getValoracionesByVivienda(this.idVivienda).subscribe((data) => {
-      this.valoraciones = data;
-      console.log("Valoraciones: " + this.valoraciones);
-    });
+    this.valoracionesService.getValoracionesByVivienda(this.idVivienda).subscribe(data => {
+      this.valoraciones0 = data;
+      this.valoraciones0.forEach(element =>{
+        this.usuariosService.getUsuarioById(element.autor).subscribe(data =>{
+          let newValoracion : ValoracionView = {
+          id: element.id,
+          autor: element.autor,
+          vivienda: element.vivienda,
+          descripcion: element.descripcion,
+          puntuacion: element.puntuacion,
+          nombreAutor: data.userName
+        };
+        console.log("nV", newValoracion)
+        this.valoraciones.push(newValoracion);
+        })
+      })
+      console.log("Valoraciones", this.valoraciones)
+    })
   }
 
   getUsuario(autor: string): string {
+    let nombre ="";
     this.usuariosService
       .getUsuarioById(autor)
       .subscribe((data) => {
-        this.nombreUsuario = data.userName;
-        console.log(this.nombreUsuario);
+        nombre = data.userName
       });
-      return this.nombreUsuario;
+      return nombre;
   }
 
   getUsuarios() {

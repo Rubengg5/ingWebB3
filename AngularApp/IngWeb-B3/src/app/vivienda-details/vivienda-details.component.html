@@ -6,6 +6,7 @@
       <h4 class="display-5 fw-bold">{{ vivienda.nombre }}</h4>
       <p class="col-md-8 fs-4">{{ vivienda.descripcion }}</p>
       <p>{{ vivienda.localidad }}, {{ vivienda.provincia }}</p>
+      <p>Vivienda ofrecida por {{this.user.userName}}</p>
       <h5>Desde <b>{{vivienda.precioNoche}}€</b> la noche</h5>
       <button *ngIf="esPropietario"
         class="btn btn-warning btn-lg"
