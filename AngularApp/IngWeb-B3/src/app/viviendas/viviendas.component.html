@@ -16,7 +16,10 @@
 <body class="bg-light">
   <app-header></app-header>
   <!--Container-->
-  <div class="container px-4 py-5" id="custom-cards">
+  <div *ngIf="!legitimo">
+    <h1 style="text-align: center;">No tienes acceso a esta página</h1>
+  </div>
+  <div *ngIf="legitimo" class="container px-4 py-5" id="custom-cards">
     <h1 class="pb-1 border-bottom">Viviendas</h1>
 
     <div *ngFor="let vivienda of viviendaList" class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">

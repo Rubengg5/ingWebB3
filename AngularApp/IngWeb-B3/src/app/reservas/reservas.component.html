@@ -18,7 +18,10 @@
     <!-- <div>app.component works.</div> -->
 
     <!--Container-->
-    <div class="container px-4 py-5" id="custom-cards">
+    <div *ngIf="!legitimo">
+      <h1 style="text-align: center;">No tienes acceso a esta página</h1>
+    </div>
+    <div *ngIf="legitimo" class="container px-4 py-5" id="custom-cards">
       <h1 class="pb-1 border-bottom">Tus reservas</h1>
 
       <input #fechaEntrada type="date" value="" class="col form-control px-4 me-sm-3" id="fechaEntrada" placeholder="Fecha de Entrada">

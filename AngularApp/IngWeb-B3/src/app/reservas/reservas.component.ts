@@ -12,7 +12,7 @@ import { ViviendaService } from '../services/vivienda.service';
   styleUrls: ['./reservas.component.css']
 })
 export class ReservasComponent implements OnInit {
-
+  legitimo : Boolean = false;
   reservaList: Reserva[] = [];
   vistaList: ReservaView[] =[];
   
@@ -21,7 +21,7 @@ export class ReservasComponent implements OnInit {
 
   ngOnInit(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
-
+    this.legitimo = id == localStorage.getItem("id")
     this.reservasService.getReservaByInquilino(id)
     .subscribe(data => 
       {
