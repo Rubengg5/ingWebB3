@@ -23,6 +23,7 @@ export class ViviendaDetailsComponent implements OnInit {
   nPersonas: number = 0;
   puedeReservar: boolean = false;
   esPropietario: boolean = false;
+  user : Usuario ;
 
   constructor(private route: ActivatedRoute,
     private usuarioService: UsuarioService,
@@ -40,6 +41,9 @@ export class ViviendaDetailsComponent implements OnInit {
         this.esPropietario = this.vivienda.propietario ==localStorage.getItem("id");
         this.latitudVivienda = this.vivienda.ubicacion.lat;
         this.longitudVivienda = this.vivienda.ubicacion.lon;
+        this.usuarioService.getUsuarioById(this.vivienda.propietario).subscribe(data => {
+          this.user = data;
+        });
       });
 
   }
