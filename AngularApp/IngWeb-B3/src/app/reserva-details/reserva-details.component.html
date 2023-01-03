@@ -8,6 +8,7 @@
         <p class="col-md-8 fs-4">{{reserva.fechaEntrada}} / {{reserva.fechaSalida}}</p>
         <p>{{reserva.nPersonas}} personas</p>
         <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/modifyReserva', reserva.id]">Editar reserva</button>
+        <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/chat', vivienda.propietario]">Chatear con el anfitrión</button>
       </div>
     </div>
 

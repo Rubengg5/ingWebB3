@@ -32,9 +32,10 @@
       </div>
     </div>
   </div>
-  <input #mensaje type="text" value="" class="col form-control px-4 me-sm-3" id="mensaje" aria-describedby="emailHelp" placeholder="Mensaje"
-  (keyup.enter)="sendMensaje(mensaje.value); mensaje.value=''"
-      >
-          <button type="submit" class="col btn btn-secondary btn-lg px-4" (click)="sendMensaje(mensaje.value); mensaje.value=''">Enviar</button>
+  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+  <input #mensaje type="text" value="" class="form-control px-4 me-sm-3" id="mensaje" aria-describedby="emailHelp" placeholder="Mensaje"
+  (keyup.enter)="sendMensaje(mensaje.value); mensaje.value=''">
+  <button type="submit" class="btn btn-secondary btn-lg px-4 " (click)="sendMensaje(mensaje.value); mensaje.value=''">Enviar</button>
+</div>
 </div>
 <app-footer></app-footer>
